@@ -45,7 +45,7 @@ export const CartList = ({ products }: Props) => {
               <div className="flex justify-between">
                 <div className="pr-6">
                   <h3 className={styles.product.name}>
-                    <Link href={`/product/${productID}`}>
+                    <Link href={`/product/${productID}`} legacyBehavior>
                       <a>
                         {product?.name}
                       </a>
