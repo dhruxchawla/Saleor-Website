@@ -2,18 +2,34 @@ import CheckoutForm from '@/components/sidebar/CheckoutForm'
 import CheckoutSidebar from '@/components/sidebar/CheckoutSidebar'
 import EmailSection from '@/components/sidebar/EmailSection'
 import React from 'react'
+import { useLocalStorage } from 'react-use';
+import { useCheckoutFetchByTokenQuery } from "@/saleor/api";
 
-function checkout() {
+
+const Checkout = () => {
+  // const [token] = useLocalStorage('token');
+  // const { data, loading, error } = useCheckoutFetchByTokenQuery({
+  //   variables: { checkoutToken: token },
+  //   skip: !token,
+  // });
+
+  // if (loading) return <div>Loading...</div>;
+  // if (error) return <div>Error</div>;
+  // if (!data || !data.checkout) return null;
+
+  // const products = data.checkout?.lines || [];
+
   return (
     <main className="w-screen max-w-7xl md:px-8 md:mx-auto overflow-hidden flex md:flex-row flex-col justify-between">
         <div className="md:w-2/3 w-full">
           <CheckoutForm />
         </div>
         <div className="md:w-1/3 w-full">
-          <CheckoutSidebar />
+          <CheckoutSidebar/>
         </div>
       </main>
-  )
-}
 
-export default checkout
+  );
+};
+
+export default Checkout;

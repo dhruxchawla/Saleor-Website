@@ -2,16 +2,29 @@ import React from 'react'
 import { CartSummary } from '../CartSummary'
 import CheckoutProductList from './CheckoutProductList'
 
-function CheckoutSidebar() {
-  return (
-    <section className="max-w-md w-full flex flex-col ">
-      <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 md:pr-4 md:py-4 md:pl-0 p-4">
-      Order summary
-      </h1>
+interface Props {
+  products: any[];
+}
 
-      <CheckoutProductList />
-      <CartSummary />
-    </section>
+export const CheckoutSidebar = () => {
+  return (
+    <div className="bg-white rounded-md p-4">
+      <h2 className="text-lg font-semibold mb-4">Order Summary</h2>
+      <ul className="divide-y divide-gray-300">
+        {/* {products.map((item) => ( */}
+          <li key="1" className="py-2">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-700">Portal Gun</span>
+              <span className="text-gray-700">$300</span>
+            </div>
+          </li>
+        {/* ))} */}
+      </ul>
+      <div className="flex justify-between items-center mt-4">
+        <span className="text-gray-600">Total:</span>
+        <span className="text-gray-600"></span>
+      </div>
+    </div>
   )
 }
 
