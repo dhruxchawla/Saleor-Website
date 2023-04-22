@@ -25689,12 +25689,144 @@ export type _Service = {
   sdl?: Maybe<Scalars['String']>;
 };
 
+export type AddressDetailsFragmentFragment = { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } };
+
+export type AttributeFilterChoiceFragmentFragment = { __typename?: 'AttributeValue', id: string, name?: string | null, slug?: string | null, translation?: { __typename?: 'AttributeValueTranslation', name: string } | null };
+
+export type AttributeFilterFragmentFragment = { __typename?: 'Attribute', id: string, inputType?: AttributeInputTypeEnum | null, name?: string | null, slug?: string | null, withChoices: boolean, translation?: { __typename?: 'AttributeTranslation', id: string, name: string } | null, choices?: { __typename?: 'AttributeValueCountableConnection', edges: Array<{ __typename?: 'AttributeValueCountableEdge', cursor: string, node: { __typename?: 'AttributeValue', id: string, name?: string | null, slug?: string | null, translation?: { __typename?: 'AttributeValueTranslation', name: string } | null } }> } | null };
+
+export type CategoryBasicFragmentFragment = { __typename?: 'Category', id: string, name: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null };
+
+export type CategoryDetailsFragmentFragment = { __typename?: 'Category', id: string, seoTitle?: string | null, seoDescription?: string | null, description?: any | null, name: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, description?: any | null, name?: string | null } | null, backgroundImage?: { __typename?: 'Image', url: string, alt?: string | null } | null, ancestors?: { __typename?: 'CategoryCountableConnection', edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', id: string, name: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null } }> } | null, children?: { __typename?: 'CategoryCountableConnection', edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', id: string, name: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null } }> } | null };
+
+export type CheckoutDetailsFragmentFragment = { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } };
+
 export type CheckoutFragmentFragment = { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } };
+
+export type CheckoutLineDetailsFragmentFragment = { __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } };
+
+export type CollectionBasicFragmentFragment = { __typename?: 'Collection', id: string, name: string, slug: string, translation?: { __typename?: 'CollectionTranslation', id: string, name?: string | null } | null };
+
+export type CollectionDetailsFragmentFragment = { __typename?: 'Collection', id: string, seoTitle?: string | null, seoDescription?: string | null, description?: any | null, name: string, slug: string, translation?: { __typename?: 'CollectionTranslation', id: string, description?: any | null, name?: string | null } | null, backgroundImage?: { __typename?: 'Image', url: string, alt?: string | null } | null };
+
+export type DeliveryMethodFragmentFragment = { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } };
+
+export type ErrorDetailsFragmentFragment = { __typename?: 'CheckoutError', field?: string | null, message?: string | null, code: CheckoutErrorCode };
+
+export type HomepageBlockFragmentFragment = { __typename?: 'MenuItem', id: string, name: string, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string, content?: any | null, title: string, translation?: { __typename?: 'PageTranslation', content?: any | null, title?: string | null } | null } | null };
+
+export type ImageFragmentFragment = { __typename?: 'Image', url: string, alt?: string | null };
+
+export type MenuItemFragmentFragment = { __typename?: 'MenuItem', id: string, name: string, url?: string | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null };
+
+export type MenuItemWithChildrenFragmentFragment = { __typename?: 'MenuItem', id: string, name: string, url?: string | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null, children?: Array<{ __typename?: 'MenuItem', id: string, name: string, url?: string | null, children?: Array<{ __typename?: 'MenuItem', id: string, name: string, url?: string | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null }> | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null }> | null };
+
+export type OrderDetailsFragmentFragment = { __typename?: 'Order', id: string, token: string, created: any, number: string, status: OrderStatus, total: { __typename?: 'TaxedMoney', currency: string, gross: { __typename?: 'Money', currency: string, amount: number }, net: { __typename?: 'Money', currency: string, amount: number } } };
+
+export type PageInfoFragmentFragment = { __typename?: 'PageInfo', hasNextPage: boolean, startCursor?: string | null, endCursor?: string | null };
+
+export type PriceFragmentFragment = { __typename?: 'Money', currency: string, amount: number };
+
+export type ProductCardFragmentFragment = { __typename?: 'Product', id: string, slug: string, name: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null, category?: { __typename?: 'Category', id: string, name: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null } | null, media?: Array<{ __typename?: 'ProductMedia', url: string, alt: string, type: ProductMediaType }> | null, attributes: Array<{ __typename?: 'SelectedAttribute', attribute: { __typename?: 'Attribute', slug?: string | null }, values: Array<{ __typename?: 'AttributeValue', name?: string | null }> }> };
+
+export type ProductDetailsFragmentFragment = { __typename?: 'Product', id: string, name: string, slug: string, description?: any | null, seoDescription?: string | null, seoTitle?: string | null, isAvailableForPurchase?: boolean | null, translation?: { __typename?: 'ProductTranslation', id: string, description?: any | null, name?: string | null } | null, attributes: Array<{ __typename?: 'SelectedAttribute', attribute: { __typename?: 'Attribute', id: string, name?: string | null, type?: AttributeTypeEnum | null, unit?: MeasurementUnitsEnum | null, translation?: { __typename?: 'AttributeTranslation', id: string, name: string } | null }, values: Array<{ __typename?: 'AttributeValue', id: string, name?: string | null, value?: string | null, translation?: { __typename?: 'AttributeValueTranslation', id: string, name: string, richText?: any | null } | null }> }>, category?: { __typename?: 'Category', name: string, id: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null } | null, variants?: Array<{ __typename?: 'ProductVariant', id: string, name: string, quantityAvailable?: number | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null, attributes: Array<{ __typename?: 'SelectedAttribute', attribute: { __typename?: 'Attribute', id: string, name?: string | null, type?: AttributeTypeEnum | null, unit?: MeasurementUnitsEnum | null, translation?: { __typename?: 'AttributeTranslation', id: string, name: string } | null }, values: Array<{ __typename?: 'AttributeValue', id: string, name?: string | null, value?: string | null, translation?: { __typename?: 'AttributeValueTranslation', id: string, name: string, richText?: any | null } | null }> }>, media?: Array<{ __typename?: 'ProductMedia', url: string, alt: string, type: ProductMediaType }> | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null }> | null, pricing?: { __typename?: 'ProductPricingInfo', priceRange?: { __typename?: 'TaxedMoneyRange', start?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null } | null, media?: Array<{ __typename?: 'ProductMedia', url: string, alt: string, type: ProductMediaType }> | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null };
+
+export type ProductMediaFragmentFragment = { __typename?: 'ProductMedia', url: string, alt: string, type: ProductMediaType };
+
+export type ProductVariantDetailsFragmentFragment = { __typename?: 'ProductVariant', id: string, name: string, quantityAvailable?: number | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null, attributes: Array<{ __typename?: 'SelectedAttribute', attribute: { __typename?: 'Attribute', id: string, name?: string | null, type?: AttributeTypeEnum | null, unit?: MeasurementUnitsEnum | null, translation?: { __typename?: 'AttributeTranslation', id: string, name: string } | null }, values: Array<{ __typename?: 'AttributeValue', id: string, name?: string | null, value?: string | null, translation?: { __typename?: 'AttributeValueTranslation', id: string, name: string, richText?: any | null } | null }> }>, media?: Array<{ __typename?: 'ProductMedia', url: string, alt: string, type: ProductMediaType }> | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null };
+
+export type SelectedAttributeDetailsFragmentFragment = { __typename?: 'SelectedAttribute', attribute: { __typename?: 'Attribute', id: string, name?: string | null, type?: AttributeTypeEnum | null, unit?: MeasurementUnitsEnum | null, translation?: { __typename?: 'AttributeTranslation', id: string, name: string } | null }, values: Array<{ __typename?: 'AttributeValue', id: string, name?: string | null, value?: string | null, translation?: { __typename?: 'AttributeValueTranslation', id: string, name: string, richText?: any | null } | null }> };
+
+export type AddressDeleteMutationVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type AddressDeleteMutation = { __typename?: 'Mutation', accountAddressDelete?: { __typename?: 'AccountAddressDelete', user?: { __typename?: 'User', addresses: Array<{ __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } }> } | null } | null };
+
+export type AddressSetDefaultMutationVariables = Exact<{
+  addressID: Scalars['ID'];
+  userID: Scalars['ID'];
+  addressType: AddressTypeEnum;
+}>;
+
+
+export type AddressSetDefaultMutation = { __typename?: 'Mutation', addressSetDefault?: { __typename?: 'AddressSetDefault', errors: Array<{ __typename?: 'AccountError', field?: string | null, message?: string | null, code: AccountErrorCode }> } | null };
+
+export type CheckoutAddProductLineMutationVariables = Exact<{
+  checkoutToken: Scalars['UUID'];
+  variantId: Scalars['ID'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CheckoutAddProductLineMutation = { __typename?: 'Mutation', checkoutLinesAdd?: { __typename?: 'CheckoutLinesAdd', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null, errors: Array<{ __typename?: 'CheckoutError', message?: string | null, code: CheckoutErrorCode }> } | null };
+
+export type CheckoutAddPromoCodeMutationVariables = Exact<{
+  token: Scalars['UUID'];
+  promoCode: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CheckoutAddPromoCodeMutation = { __typename?: 'Mutation', checkoutAddPromoCode?: { __typename?: 'CheckoutAddPromoCode', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null, errors: Array<{ __typename?: 'CheckoutError', message?: string | null, field?: string | null }> } | null };
+
+export type CheckoutBillingAddressUpdateMutationVariables = Exact<{
+  token: Scalars['UUID'];
+  address: AddressInput;
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CheckoutBillingAddressUpdateMutation = { __typename?: 'Mutation', checkoutBillingAddressUpdate?: { __typename?: 'CheckoutBillingAddressUpdate', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, message?: string | null, code: CheckoutErrorCode }> } | null };
+
+export type CheckoutCompleteMutationVariables = Exact<{
+  checkoutToken: Scalars['UUID'];
+  paymentData?: InputMaybe<Scalars['JSONString']>;
+}>;
+
+
+export type CheckoutCompleteMutation = { __typename?: 'Mutation', checkoutComplete?: { __typename?: 'CheckoutComplete', confirmationNeeded: boolean, confirmationData?: any | null, order?: { __typename?: 'Order', id: string, status: OrderStatus, token: string, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, message?: string | null, variants?: Array<string> | null, addressType?: AddressTypeEnum | null }> } | null };
 
 export type CheckoutCreateMutationVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CheckoutCreateMutation = { __typename?: 'Mutation', checkoutCreate?: { __typename?: 'CheckoutCreate', checkout?: { __typename?: 'Checkout', token: any } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, code: CheckoutErrorCode }> } | null };
+
+export type CheckoutPaymentCreateMutationVariables = Exact<{
+  checkoutToken: Scalars['UUID'];
+  paymentInput: PaymentInput;
+}>;
+
+
+export type CheckoutPaymentCreateMutation = { __typename?: 'Mutation', checkoutPaymentCreate?: { __typename?: 'CheckoutPaymentCreate', payment?: { __typename?: 'Payment', id: string, total?: { __typename?: 'Money', currency: string, amount: number } | null } | null, errors: Array<{ __typename?: 'PaymentError', field?: string | null, message?: string | null }> } | null };
+
+export type CheckoutEmailUpdateMutationVariables = Exact<{
+  token: Scalars['UUID'];
+  email: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CheckoutEmailUpdateMutation = { __typename?: 'Mutation', checkoutEmailUpdate?: { __typename?: 'CheckoutEmailUpdate', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, message?: string | null }> } | null };
+
+export type CheckoutLineUpdateMutationVariables = Exact<{
+  token?: InputMaybe<Scalars['UUID']>;
+  lines: Array<CheckoutLineUpdateInput> | CheckoutLineUpdateInput;
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CheckoutLineUpdateMutation = { __typename?: 'Mutation', checkoutLinesUpdate?: { __typename?: 'CheckoutLinesUpdate', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, message?: string | null, code: CheckoutErrorCode }> } | null };
+
+export type RemoveProductFromCheckoutMutationVariables = Exact<{
+  checkoutToken: Scalars['UUID'];
+  lineId: Scalars['ID'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type RemoveProductFromCheckoutMutation = { __typename?: 'Mutation', checkoutLineDelete?: { __typename?: 'CheckoutLineDelete', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, message?: string | null }> } | null };
 
 export type CheckoutRemoveProductMutationVariables = Exact<{
   checkoutToken: Scalars['UUID'];
@@ -25704,6 +25836,40 @@ export type CheckoutRemoveProductMutationVariables = Exact<{
 
 export type CheckoutRemoveProductMutation = { __typename?: 'Mutation', checkoutLineDelete?: { __typename?: 'CheckoutLineDelete', checkout?: { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } } | null, errors: Array<{ __typename?: 'CheckoutError', message?: string | null }> } | null };
 
+export type CheckoutShippingAddressUpdateMutationVariables = Exact<{
+  token: Scalars['UUID'];
+  address: AddressInput;
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CheckoutShippingAddressUpdateMutation = { __typename?: 'Mutation', checkoutShippingAddressUpdate?: { __typename?: 'CheckoutShippingAddressUpdate', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, message?: string | null, code: CheckoutErrorCode }> } | null };
+
+export type CheckoutShippingMethodUpdateMutationVariables = Exact<{
+  token: Scalars['UUID'];
+  shippingMethodId: Scalars['ID'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CheckoutShippingMethodUpdateMutation = { __typename?: 'Mutation', checkoutShippingMethodUpdate?: { __typename?: 'CheckoutShippingMethodUpdate', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, message?: string | null, code: CheckoutErrorCode }> } | null };
+
+export type SetAddressDefaultMutationVariables = Exact<{
+  id: Scalars['ID'];
+  type: AddressTypeEnum;
+}>;
+
+
+export type SetAddressDefaultMutation = { __typename?: 'Mutation', accountSetDefaultAddress?: { __typename?: 'AccountSetDefaultAddress', user?: { __typename?: 'User', addresses: Array<{ __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } }> } | null, errors: Array<{ __typename?: 'AccountError', code: AccountErrorCode, message?: string | null }> } | null };
+
+export type PasswordChangeMutationVariables = Exact<{
+  newPassword: Scalars['String'];
+  oldPassword: Scalars['String'];
+}>;
+
+
+export type PasswordChangeMutation = { __typename?: 'Mutation', passwordChange?: { __typename?: 'PasswordChange', user?: { __typename?: 'User', email: string } | null, errors: Array<{ __typename?: 'AccountError', field?: string | null, message?: string | null, code: AccountErrorCode }> } | null };
+
 export type ProductAddVariantToCartMutationVariables = Exact<{
   checkoutToken: Scalars['UUID'];
   variantId: Scalars['ID'];
@@ -25712,6 +25878,53 @@ export type ProductAddVariantToCartMutationVariables = Exact<{
 
 export type ProductAddVariantToCartMutation = { __typename?: 'Mutation', checkoutLinesAdd?: { __typename?: 'CheckoutLinesAdd', checkout?: { __typename?: 'Checkout', id: string, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, variant: { __typename?: 'ProductVariant', name: string, product: { __typename?: 'Product', name: string } } }> } | null, errors: Array<{ __typename?: 'CheckoutError', message?: string | null }> } | null };
 
+export type RegisterMutationVariables = Exact<{
+  input: AccountRegisterInput;
+}>;
+
+
+export type RegisterMutation = { __typename?: 'Mutation', accountRegister?: { __typename?: 'AccountRegister', errors: Array<{ __typename?: 'AccountError', message?: string | null, field?: string | null, code: AccountErrorCode }> } | null };
+
+export type RequestEmailChangeMutationVariables = Exact<{
+  newEmail: Scalars['String'];
+  password: Scalars['String'];
+  redirectUrl: Scalars['String'];
+}>;
+
+
+export type RequestEmailChangeMutation = { __typename?: 'Mutation', requestEmailChange?: { __typename?: 'RequestEmailChange', user?: { __typename?: 'User', email: string } | null, errors: Array<{ __typename?: 'AccountError', field?: string | null, message?: string | null, code: AccountErrorCode }> } | null };
+
+export type AvailableShippingMethodsQueryVariables = Exact<{
+  channel: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type AvailableShippingMethodsQuery = { __typename?: 'Query', shop: { __typename?: 'Shop', availableShippingMethods?: Array<{ __typename?: 'ShippingMethod', id: string, name: string, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }> | null } };
+
+export type CategoryBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CategoryBySlugQuery = { __typename?: 'Query', category?: { __typename?: 'Category', id: string, seoTitle?: string | null, seoDescription?: string | null, description?: any | null, name: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, description?: any | null, name?: string | null } | null, backgroundImage?: { __typename?: 'Image', url: string, alt?: string | null } | null, ancestors?: { __typename?: 'CategoryCountableConnection', edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', id: string, name: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null } }> } | null, children?: { __typename?: 'CategoryCountableConnection', edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', id: string, name: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null } }> } | null } | null };
+
+export type CategoryPathsQueryVariables = Exact<{
+  after?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type CategoryPathsQuery = { __typename?: 'Query', categories?: { __typename?: 'CategoryCountableConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, startCursor?: string | null, endCursor?: string | null }, edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', slug: string } }> } | null };
+
+export type CheckoutByTokenQueryVariables = Exact<{
+  checkoutToken: Scalars['UUID'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CheckoutByTokenQuery = { __typename?: 'Query', checkout?: { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null };
+
 export type CheckoutFetchByTokenQueryVariables = Exact<{
   checkoutToken: Scalars['UUID'];
 }>;
@@ -25719,12 +25932,127 @@ export type CheckoutFetchByTokenQueryVariables = Exact<{
 
 export type CheckoutFetchByTokenQuery = { __typename?: 'Query', checkout?: { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } } | null };
 
+export type CollectionBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+  channel: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type CollectionBySlugQuery = { __typename?: 'Query', collection?: { __typename?: 'Collection', id: string, seoTitle?: string | null, seoDescription?: string | null, description?: any | null, name: string, slug: string, backgroundImage?: { __typename?: 'Image', url: string, alt?: string | null } | null, translation?: { __typename?: 'CollectionTranslation', id: string, description?: any | null, name?: string | null } | null } | null };
+
+export type CollectionPathsQueryVariables = Exact<{
+  after?: InputMaybe<Scalars['String']>;
+  channel: Scalars['String'];
+}>;
+
+
+export type CollectionPathsQuery = { __typename?: 'Query', collections?: { __typename?: 'CollectionCountableConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, startCursor?: string | null, endCursor?: string | null }, edges: Array<{ __typename?: 'CollectionCountableEdge', node: { __typename?: 'Collection', slug: string } }> } | null };
+
+export type CurrentUserDetailsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CurrentUserDetailsQuery = { __typename?: 'Query', me?: { __typename?: 'User', id: string, lastLogin?: any | null, dateJoined: any, email: string, firstName: string, lastName: string, avatar?: { __typename?: 'Image', url: string, alt?: string | null } | null, orders?: { __typename?: 'OrderCountableConnection', totalCount?: number | null } | null } | null };
+
+export type FilteringAttributesQueryQueryVariables = Exact<{
+  filter: AttributeFilterInput;
+  channel: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type FilteringAttributesQueryQuery = { __typename?: 'Query', attributes?: { __typename?: 'AttributeCountableConnection', totalCount?: number | null, edges: Array<{ __typename?: 'AttributeCountableEdge', node: { __typename?: 'Attribute', id: string, inputType?: AttributeInputTypeEnum | null, name?: string | null, slug?: string | null, withChoices: boolean, translation?: { __typename?: 'AttributeTranslation', id: string, name: string } | null, choices?: { __typename?: 'AttributeValueCountableConnection', edges: Array<{ __typename?: 'AttributeValueCountableEdge', cursor: string, node: { __typename?: 'AttributeValue', id: string, name?: string | null, slug?: string | null, translation?: { __typename?: 'AttributeValueTranslation', name: string } | null } }> } | null } }> } | null };
+
+export type FooterMenuQueryVariables = Exact<{
+  locale: LanguageCodeEnum;
+  channel: Scalars['String'];
+}>;
+
+
+export type FooterMenuQuery = { __typename?: 'Query', menu?: { __typename?: 'Menu', id: string, items?: Array<{ __typename?: 'MenuItem', id: string, name: string, url?: string | null, children?: Array<{ __typename?: 'MenuItem', id: string, name: string, url?: string | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null }> | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null }> | null } | null };
+
+export type HomepageBlocksQueryQueryVariables = Exact<{
+  slug: Scalars['String'];
+  channel: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type HomepageBlocksQueryQuery = { __typename?: 'Query', menu?: { __typename?: 'Menu', id: string, name: string, slug: string, items?: Array<{ __typename?: 'MenuItem', id: string, name: string, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string, content?: any | null, title: string, translation?: { __typename?: 'PageTranslation', content?: any | null, title?: string | null } | null } | null }> | null } | null };
+
+export type MainMenuQueryVariables = Exact<{
+  locale: LanguageCodeEnum;
+  channel: Scalars['String'];
+}>;
+
+
+export type MainMenuQuery = { __typename?: 'Query', menu?: { __typename?: 'Menu', id: string, items?: Array<{ __typename?: 'MenuItem', id: string, name: string, url?: string | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null, children?: Array<{ __typename?: 'MenuItem', id: string, name: string, url?: string | null, children?: Array<{ __typename?: 'MenuItem', id: string, name: string, url?: string | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null }> | null, translation?: { __typename?: 'MenuItemTranslation', id: string, name: string } | null, category?: { __typename?: 'Category', id: string, slug: string } | null, collection?: { __typename?: 'Collection', id: string, slug: string } | null, page?: { __typename?: 'Page', id: string, slug: string } | null }> | null }> | null } | null };
+
+export type OrderDetailsQueryQueryVariables = Exact<{
+  token: Scalars['UUID'];
+}>;
+
+
+export type OrderDetailsQueryQuery = { __typename?: 'Query', orderByToken?: { __typename?: 'Order', id: string, number: string, created: any, statusDisplay: string, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, lines: Array<{ __typename?: 'OrderLine', id: string, productName: string, variantName: string, quantity: number, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } }>, total: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null };
+
+export type OrderDetailsByTokenQueryVariables = Exact<{
+  token: Scalars['UUID'];
+}>;
+
+
+export type OrderDetailsByTokenQuery = { __typename?: 'Query', orderByToken?: { __typename?: 'Order', id: string, status: OrderStatus, number: string, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, subtotal: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, total: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, lines: Array<{ __typename?: 'OrderLine', id: string, productName: string, variantName: string, quantity: number, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null, unitPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } }>, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } } | null };
+
+export type OrdersQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type OrdersQuery = { __typename?: 'Query', me?: { __typename?: 'User', orders?: { __typename?: 'OrderCountableConnection', totalCount?: number | null, edges: Array<{ __typename?: 'OrderCountableEdge', cursor: string, node: { __typename?: 'Order', id: string, token: string, created: any, number: string, status: OrderStatus, total: { __typename?: 'TaxedMoney', currency: string, gross: { __typename?: 'Money', currency: string, amount: number }, net: { __typename?: 'Money', currency: string, amount: number } } } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null, endCursor?: string | null } } | null } | null };
+
+export type PageQueryVariables = Exact<{
+  slug: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', id: string, title: string, seoTitle?: string | null, seoDescription?: string | null, slug: string, created: any, content?: any | null, translation?: { __typename?: 'PageTranslation', id: string, title?: string | null, content?: any | null } | null } | null };
+
+export type PagePathsQueryVariables = Exact<{
+  after?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type PagePathsQuery = { __typename?: 'Query', pages?: { __typename?: 'PageCountableConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, startCursor?: string | null, endCursor?: string | null }, edges: Array<{ __typename?: 'PageCountableEdge', node: { __typename?: 'Page', slug: string } }> } | null };
+
 export type ProductByIdQueryVariables = Exact<{
   id: Scalars['ID'];
 }>;
 
 
 export type ProductByIdQuery = { __typename?: 'Query', product?: { __typename?: 'Product', id: string, name: string, description?: any | null, media?: Array<{ __typename?: 'ProductMedia', url: string }> | null, category?: { __typename?: 'Category', name: string } | null, variants?: Array<{ __typename?: 'ProductVariant', id: string, name: string, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null } | null }> | null } | null };
+
+export type ProductBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+  channel: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type ProductBySlugQuery = { __typename?: 'Query', product?: { __typename?: 'Product', id: string, name: string, slug: string, description?: any | null, seoDescription?: string | null, seoTitle?: string | null, isAvailableForPurchase?: boolean | null, translation?: { __typename?: 'ProductTranslation', id: string, description?: any | null, name?: string | null } | null, attributes: Array<{ __typename?: 'SelectedAttribute', attribute: { __typename?: 'Attribute', id: string, name?: string | null, type?: AttributeTypeEnum | null, unit?: MeasurementUnitsEnum | null, translation?: { __typename?: 'AttributeTranslation', id: string, name: string } | null }, values: Array<{ __typename?: 'AttributeValue', id: string, name?: string | null, value?: string | null, translation?: { __typename?: 'AttributeValueTranslation', id: string, name: string, richText?: any | null } | null }> }>, category?: { __typename?: 'Category', name: string, id: string, slug: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null } | null, variants?: Array<{ __typename?: 'ProductVariant', id: string, name: string, quantityAvailable?: number | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null, attributes: Array<{ __typename?: 'SelectedAttribute', attribute: { __typename?: 'Attribute', id: string, name?: string | null, type?: AttributeTypeEnum | null, unit?: MeasurementUnitsEnum | null, translation?: { __typename?: 'AttributeTranslation', id: string, name: string } | null }, values: Array<{ __typename?: 'AttributeValue', id: string, name?: string | null, value?: string | null, translation?: { __typename?: 'AttributeValueTranslation', id: string, name: string, richText?: any | null } | null }> }>, media?: Array<{ __typename?: 'ProductMedia', url: string, alt: string, type: ProductMediaType }> | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null }> | null, pricing?: { __typename?: 'ProductPricingInfo', priceRange?: { __typename?: 'TaxedMoneyRange', start?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null } | null, media?: Array<{ __typename?: 'ProductMedia', url: string, alt: string, type: ProductMediaType }> | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null } | null };
+
+export type ProductCollectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  filter?: InputMaybe<ProductFilterInput>;
+  sortBy?: InputMaybe<ProductOrder>;
+  channel: Scalars['String'];
+  locale: LanguageCodeEnum;
+}>;
+
+
+export type ProductCollectionQuery = { __typename?: 'Query', products?: { __typename?: 'ProductCountableConnection', totalCount?: number | null, edges: Array<{ __typename?: 'ProductCountableEdge', cursor: string, node: { __typename?: 'Product', id: string, slug: string, name: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null, category?: { __typename?: 'Category', id: string, name: string, translation?: { __typename?: 'CategoryTranslation', id: string, name?: string | null } | null } | null, media?: Array<{ __typename?: 'ProductMedia', url: string, alt: string, type: ProductMediaType }> | null, attributes: Array<{ __typename?: 'SelectedAttribute', attribute: { __typename?: 'Attribute', slug?: string | null }, values: Array<{ __typename?: 'AttributeValue', name?: string | null }> }> } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null, endCursor?: string | null } } | null };
 
 export type ProductFilterByNameQueryVariables = Exact<{
   first?: InputMaybe<Scalars['Int']>;
@@ -25745,11 +26073,241 @@ export type ProductGetTwelveElementsQueryVariables = Exact<{ [key: string]: neve
 
 export type ProductGetTwelveElementsQuery = { __typename?: 'Query', products?: { __typename?: 'ProductCountableConnection', edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename?: 'Product', id: string, name: string, thumbnail?: { __typename?: 'Image', url: string } | null, category?: { __typename?: 'Category', name: string } | null } }> } | null };
 
+export type ProductPathsQueryVariables = Exact<{
+  after?: InputMaybe<Scalars['String']>;
+  channel: Scalars['String'];
+}>;
+
+
+export type ProductPathsQuery = { __typename?: 'Query', products?: { __typename?: 'ProductCountableConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, startCursor?: string | null, endCursor?: string | null }, edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename?: 'Product', slug: string } }> } | null };
+
 export type ProductSearchTShirtQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ProductSearchTShirtQuery = { __typename?: 'Query', products?: { __typename?: 'ProductCountableConnection', edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename?: 'Product', id: string, name: string, thumbnail?: { __typename?: 'Image', url: string } | null, category?: { __typename?: 'Category', name: string } | null } }> } | null };
 
+export type UserQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UserQuery = { __typename?: 'Query', user?: { __typename?: 'User', id: string, email: string, addresses: Array<{ __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } }>, defaultBillingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, defaultShippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null } | null };
+
+export type CurrentUserAddressesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CurrentUserAddressesQuery = { __typename?: 'Query', me?: { __typename?: 'User', addresses: Array<{ __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } }> } | null };
+
+export const AttributeFilterChoiceFragmentFragmentDoc = gql`
+    fragment AttributeFilterChoiceFragment on AttributeValue {
+  id
+  name
+  slug
+  translation(languageCode: $locale) {
+    name
+  }
+}
+    `;
+export const AttributeFilterFragmentFragmentDoc = gql`
+    fragment AttributeFilterFragment on Attribute {
+  id
+  inputType
+  name
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+  slug
+  withChoices
+  choices(first: 20) {
+    edges {
+      node {
+        ...AttributeFilterChoiceFragment
+      }
+      cursor
+    }
+  }
+}
+    ${AttributeFilterChoiceFragmentFragmentDoc}`;
+export const CategoryBasicFragmentFragmentDoc = gql`
+    fragment CategoryBasicFragment on Category {
+  id
+  name
+  slug
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+}
+    `;
+export const ImageFragmentFragmentDoc = gql`
+    fragment ImageFragment on Image {
+  url
+  alt
+}
+    `;
+export const CategoryDetailsFragmentFragmentDoc = gql`
+    fragment CategoryDetailsFragment on Category {
+  id
+  ...CategoryBasicFragment
+  seoTitle
+  seoDescription
+  description
+  translation(languageCode: $locale) {
+    id
+    description
+  }
+  backgroundImage {
+    ...ImageFragment
+  }
+  ancestors(first: 5) {
+    edges {
+      node {
+        ...CategoryBasicFragment
+      }
+    }
+  }
+  children(first: 10) {
+    edges {
+      node {
+        ...CategoryBasicFragment
+      }
+    }
+  }
+}
+    ${CategoryBasicFragmentFragmentDoc}
+${ImageFragmentFragmentDoc}`;
+export const AddressDetailsFragmentFragmentDoc = gql`
+    fragment AddressDetailsFragment on Address {
+  id
+  phone
+  firstName
+  lastName
+  streetAddress1
+  city
+  postalCode
+  isDefaultBillingAddress
+  isDefaultShippingAddress
+  country {
+    code
+    country
+  }
+}
+    `;
+export const PriceFragmentFragmentDoc = gql`
+    fragment PriceFragment on Money {
+  currency
+  amount
+}
+    `;
+export const DeliveryMethodFragmentFragmentDoc = gql`
+    fragment DeliveryMethodFragment on ShippingMethod {
+  id
+  name
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+  price {
+    ...PriceFragment
+  }
+  minimumDeliveryDays
+  maximumDeliveryDays
+}
+    ${PriceFragmentFragmentDoc}`;
+export const CheckoutLineDetailsFragmentFragmentDoc = gql`
+    fragment CheckoutLineDetailsFragment on CheckoutLine {
+  id
+  totalPrice {
+    gross {
+      ...PriceFragment
+    }
+  }
+  variant {
+    id
+    product {
+      id
+      name
+      translation(languageCode: $locale) {
+        id
+        name
+      }
+      slug
+      thumbnail {
+        ...ImageFragment
+      }
+    }
+    pricing {
+      price {
+        gross {
+          ...PriceFragment
+        }
+      }
+    }
+    name
+    translation(languageCode: $locale) {
+      id
+      name
+    }
+  }
+  quantity
+}
+    ${PriceFragmentFragmentDoc}
+${ImageFragmentFragmentDoc}`;
+export const CheckoutDetailsFragmentFragmentDoc = gql`
+    fragment CheckoutDetailsFragment on Checkout {
+  id
+  token
+  email
+  billingAddress {
+    ...AddressDetailsFragment
+  }
+  shippingAddress {
+    ...AddressDetailsFragment
+  }
+  shippingMethod {
+    ...DeliveryMethodFragment
+  }
+  isShippingRequired
+  availableShippingMethods {
+    ...DeliveryMethodFragment
+  }
+  availablePaymentGateways {
+    id
+    name
+    config {
+      field
+      value
+    }
+  }
+  lines {
+    ...CheckoutLineDetailsFragment
+  }
+  discount {
+    ...PriceFragment
+  }
+  discountName
+  subtotalPrice {
+    net {
+      ...PriceFragment
+    }
+    tax {
+      ...PriceFragment
+    }
+  }
+  shippingPrice {
+    gross {
+      ...PriceFragment
+    }
+  }
+  totalPrice {
+    gross {
+      ...PriceFragment
+    }
+  }
+}
+    ${AddressDetailsFragmentFragmentDoc}
+${DeliveryMethodFragmentFragmentDoc}
+${CheckoutLineDetailsFragmentFragmentDoc}
+${PriceFragmentFragmentDoc}`;
 export const CheckoutFragmentFragmentDoc = gql`
     fragment CheckoutFragment on Checkout {
   id
@@ -25791,6 +26349,546 @@ export const CheckoutFragmentFragmentDoc = gql`
   }
 }
     `;
+export const CollectionBasicFragmentFragmentDoc = gql`
+    fragment CollectionBasicFragment on Collection {
+  id
+  name
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+  slug
+}
+    `;
+export const CollectionDetailsFragmentFragmentDoc = gql`
+    fragment CollectionDetailsFragment on Collection {
+  id
+  ...CollectionBasicFragment
+  seoTitle
+  seoDescription
+  description
+  translation(languageCode: $locale) {
+    id
+    description
+  }
+  backgroundImage {
+    ...ImageFragment
+  }
+}
+    ${CollectionBasicFragmentFragmentDoc}
+${ImageFragmentFragmentDoc}`;
+export const ErrorDetailsFragmentFragmentDoc = gql`
+    fragment ErrorDetailsFragment on CheckoutError {
+  field
+  message
+  code
+}
+    `;
+export const HomepageBlockFragmentFragmentDoc = gql`
+    fragment HomepageBlockFragment on MenuItem {
+  id
+  name
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+  category {
+    id
+    slug
+  }
+  collection {
+    id
+    slug
+  }
+  page {
+    id
+    slug
+  }
+  page {
+    id
+    content
+    title
+    translation(languageCode: $locale) {
+      content
+      title
+    }
+  }
+}
+    `;
+export const MenuItemFragmentFragmentDoc = gql`
+    fragment MenuItemFragment on MenuItem {
+  id
+  name
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+  category {
+    id
+    slug
+  }
+  collection {
+    id
+    slug
+  }
+  page {
+    id
+    slug
+  }
+  url
+}
+    `;
+export const MenuItemWithChildrenFragmentFragmentDoc = gql`
+    fragment MenuItemWithChildrenFragment on MenuItem {
+  id
+  name
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+  category {
+    id
+    slug
+  }
+  collection {
+    id
+    slug
+  }
+  page {
+    id
+    slug
+  }
+  children {
+    ...MenuItemFragment
+    children {
+      ...MenuItemFragment
+    }
+  }
+  url
+}
+    ${MenuItemFragmentFragmentDoc}`;
+export const OrderDetailsFragmentFragmentDoc = gql`
+    fragment OrderDetailsFragment on Order {
+  id
+  token
+  created
+  number
+  status
+  total {
+    currency
+    gross {
+      ...PriceFragment
+    }
+    net {
+      ...PriceFragment
+    }
+  }
+}
+    ${PriceFragmentFragmentDoc}`;
+export const PageInfoFragmentFragmentDoc = gql`
+    fragment PageInfoFragment on PageInfo {
+  hasNextPage
+  startCursor
+  endCursor
+}
+    `;
+export const ProductCardFragmentFragmentDoc = gql`
+    fragment ProductCardFragment on Product {
+  id
+  slug
+  name
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+  thumbnail {
+    ...ImageFragment
+  }
+  category {
+    id
+    name
+    translation(languageCode: $locale) {
+      id
+      name
+    }
+  }
+  media {
+    url
+    alt
+    type
+  }
+  attributes {
+    attribute {
+      slug
+    }
+    values {
+      name
+    }
+  }
+}
+    ${ImageFragmentFragmentDoc}`;
+export const SelectedAttributeDetailsFragmentFragmentDoc = gql`
+    fragment SelectedAttributeDetailsFragment on SelectedAttribute {
+  attribute {
+    id
+    name
+    translation(languageCode: $locale) {
+      id
+      name
+    }
+    type
+    unit
+  }
+  values {
+    id
+    name
+    translation(languageCode: $locale) {
+      id
+      name
+      richText
+    }
+    value
+  }
+}
+    `;
+export const ProductMediaFragmentFragmentDoc = gql`
+    fragment ProductMediaFragment on ProductMedia {
+  url
+  alt
+  type
+}
+    `;
+export const ProductVariantDetailsFragmentFragmentDoc = gql`
+    fragment ProductVariantDetailsFragment on ProductVariant {
+  id
+  name
+  translation(languageCode: $locale) {
+    id
+    name
+  }
+  quantityAvailable
+  attributes {
+    ...SelectedAttributeDetailsFragment
+  }
+  media {
+    ...ProductMediaFragment
+  }
+  pricing {
+    price {
+      gross {
+        ...PriceFragment
+      }
+    }
+  }
+}
+    ${SelectedAttributeDetailsFragmentFragmentDoc}
+${ProductMediaFragmentFragmentDoc}
+${PriceFragmentFragmentDoc}`;
+export const ProductDetailsFragmentFragmentDoc = gql`
+    fragment ProductDetailsFragment on Product {
+  id
+  name
+  slug
+  description
+  seoDescription
+  seoTitle
+  isAvailableForPurchase
+  translation(languageCode: $locale) {
+    id
+    description
+    name
+  }
+  attributes {
+    ...SelectedAttributeDetailsFragment
+  }
+  category {
+    ...CategoryBasicFragment
+  }
+  variants {
+    ...ProductVariantDetailsFragment
+  }
+  pricing {
+    priceRange {
+      start {
+        gross {
+          ...PriceFragment
+        }
+      }
+    }
+  }
+  media {
+    ...ProductMediaFragment
+  }
+  thumbnail {
+    ...ImageFragment
+  }
+  category {
+    name
+  }
+}
+    ${SelectedAttributeDetailsFragmentFragmentDoc}
+${CategoryBasicFragmentFragmentDoc}
+${ProductVariantDetailsFragmentFragmentDoc}
+${PriceFragmentFragmentDoc}
+${ProductMediaFragmentFragmentDoc}
+${ImageFragmentFragmentDoc}`;
+export const AddressDeleteDocument = gql`
+    mutation AddressDelete($id: ID!) {
+  accountAddressDelete(id: $id) {
+    user {
+      addresses {
+        ...AddressDetailsFragment
+      }
+    }
+  }
+}
+    ${AddressDetailsFragmentFragmentDoc}`;
+export type AddressDeleteMutationFn = Apollo.MutationFunction<AddressDeleteMutation, AddressDeleteMutationVariables>;
+
+/**
+ * __useAddressDeleteMutation__
+ *
+ * To run a mutation, you first call `useAddressDeleteMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddressDeleteMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addressDeleteMutation, { data, loading, error }] = useAddressDeleteMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useAddressDeleteMutation(baseOptions?: Apollo.MutationHookOptions<AddressDeleteMutation, AddressDeleteMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<AddressDeleteMutation, AddressDeleteMutationVariables>(AddressDeleteDocument, options);
+      }
+export type AddressDeleteMutationHookResult = ReturnType<typeof useAddressDeleteMutation>;
+export type AddressDeleteMutationResult = Apollo.MutationResult<AddressDeleteMutation>;
+export type AddressDeleteMutationOptions = Apollo.BaseMutationOptions<AddressDeleteMutation, AddressDeleteMutationVariables>;
+export const AddressSetDefaultDocument = gql`
+    mutation AddressSetDefault($addressID: ID!, $userID: ID!, $addressType: AddressTypeEnum!) {
+  addressSetDefault(addressId: $addressID, type: $addressType, userId: $userID) {
+    errors {
+      field
+      message
+      code
+    }
+  }
+}
+    `;
+export type AddressSetDefaultMutationFn = Apollo.MutationFunction<AddressSetDefaultMutation, AddressSetDefaultMutationVariables>;
+
+/**
+ * __useAddressSetDefaultMutation__
+ *
+ * To run a mutation, you first call `useAddressSetDefaultMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddressSetDefaultMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addressSetDefaultMutation, { data, loading, error }] = useAddressSetDefaultMutation({
+ *   variables: {
+ *      addressID: // value for 'addressID'
+ *      userID: // value for 'userID'
+ *      addressType: // value for 'addressType'
+ *   },
+ * });
+ */
+export function useAddressSetDefaultMutation(baseOptions?: Apollo.MutationHookOptions<AddressSetDefaultMutation, AddressSetDefaultMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<AddressSetDefaultMutation, AddressSetDefaultMutationVariables>(AddressSetDefaultDocument, options);
+      }
+export type AddressSetDefaultMutationHookResult = ReturnType<typeof useAddressSetDefaultMutation>;
+export type AddressSetDefaultMutationResult = Apollo.MutationResult<AddressSetDefaultMutation>;
+export type AddressSetDefaultMutationOptions = Apollo.BaseMutationOptions<AddressSetDefaultMutation, AddressSetDefaultMutationVariables>;
+export const CheckoutAddProductLineDocument = gql`
+    mutation CheckoutAddProductLine($checkoutToken: UUID!, $variantId: ID!, $locale: LanguageCodeEnum!) {
+  checkoutLinesAdd(
+    token: $checkoutToken
+    lines: [{quantity: 1, variantId: $variantId}]
+  ) {
+    checkout {
+      ...CheckoutDetailsFragment
+    }
+    errors {
+      message
+      code
+    }
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}`;
+export type CheckoutAddProductLineMutationFn = Apollo.MutationFunction<CheckoutAddProductLineMutation, CheckoutAddProductLineMutationVariables>;
+
+/**
+ * __useCheckoutAddProductLineMutation__
+ *
+ * To run a mutation, you first call `useCheckoutAddProductLineMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutAddProductLineMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutAddProductLineMutation, { data, loading, error }] = useCheckoutAddProductLineMutation({
+ *   variables: {
+ *      checkoutToken: // value for 'checkoutToken'
+ *      variantId: // value for 'variantId'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCheckoutAddProductLineMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutAddProductLineMutation, CheckoutAddProductLineMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutAddProductLineMutation, CheckoutAddProductLineMutationVariables>(CheckoutAddProductLineDocument, options);
+      }
+export type CheckoutAddProductLineMutationHookResult = ReturnType<typeof useCheckoutAddProductLineMutation>;
+export type CheckoutAddProductLineMutationResult = Apollo.MutationResult<CheckoutAddProductLineMutation>;
+export type CheckoutAddProductLineMutationOptions = Apollo.BaseMutationOptions<CheckoutAddProductLineMutation, CheckoutAddProductLineMutationVariables>;
+export const CheckoutAddPromoCodeDocument = gql`
+    mutation CheckoutAddPromoCode($token: UUID!, $promoCode: String!, $locale: LanguageCodeEnum!) {
+  checkoutAddPromoCode(token: $token, promoCode: $promoCode) {
+    checkout {
+      ...CheckoutDetailsFragment
+    }
+    errors {
+      message
+      field
+    }
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}`;
+export type CheckoutAddPromoCodeMutationFn = Apollo.MutationFunction<CheckoutAddPromoCodeMutation, CheckoutAddPromoCodeMutationVariables>;
+
+/**
+ * __useCheckoutAddPromoCodeMutation__
+ *
+ * To run a mutation, you first call `useCheckoutAddPromoCodeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutAddPromoCodeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutAddPromoCodeMutation, { data, loading, error }] = useCheckoutAddPromoCodeMutation({
+ *   variables: {
+ *      token: // value for 'token'
+ *      promoCode: // value for 'promoCode'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCheckoutAddPromoCodeMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutAddPromoCodeMutation, CheckoutAddPromoCodeMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutAddPromoCodeMutation, CheckoutAddPromoCodeMutationVariables>(CheckoutAddPromoCodeDocument, options);
+      }
+export type CheckoutAddPromoCodeMutationHookResult = ReturnType<typeof useCheckoutAddPromoCodeMutation>;
+export type CheckoutAddPromoCodeMutationResult = Apollo.MutationResult<CheckoutAddPromoCodeMutation>;
+export type CheckoutAddPromoCodeMutationOptions = Apollo.BaseMutationOptions<CheckoutAddPromoCodeMutation, CheckoutAddPromoCodeMutationVariables>;
+export const CheckoutBillingAddressUpdateDocument = gql`
+    mutation CheckoutBillingAddressUpdate($token: UUID!, $address: AddressInput!, $locale: LanguageCodeEnum!) {
+  checkoutBillingAddressUpdate(billingAddress: $address, token: $token) {
+    checkout {
+      ...CheckoutDetailsFragment
+    }
+    errors {
+      field
+      message
+      code
+    }
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}`;
+export type CheckoutBillingAddressUpdateMutationFn = Apollo.MutationFunction<CheckoutBillingAddressUpdateMutation, CheckoutBillingAddressUpdateMutationVariables>;
+
+/**
+ * __useCheckoutBillingAddressUpdateMutation__
+ *
+ * To run a mutation, you first call `useCheckoutBillingAddressUpdateMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutBillingAddressUpdateMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutBillingAddressUpdateMutation, { data, loading, error }] = useCheckoutBillingAddressUpdateMutation({
+ *   variables: {
+ *      token: // value for 'token'
+ *      address: // value for 'address'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCheckoutBillingAddressUpdateMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutBillingAddressUpdateMutation, CheckoutBillingAddressUpdateMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutBillingAddressUpdateMutation, CheckoutBillingAddressUpdateMutationVariables>(CheckoutBillingAddressUpdateDocument, options);
+      }
+export type CheckoutBillingAddressUpdateMutationHookResult = ReturnType<typeof useCheckoutBillingAddressUpdateMutation>;
+export type CheckoutBillingAddressUpdateMutationResult = Apollo.MutationResult<CheckoutBillingAddressUpdateMutation>;
+export type CheckoutBillingAddressUpdateMutationOptions = Apollo.BaseMutationOptions<CheckoutBillingAddressUpdateMutation, CheckoutBillingAddressUpdateMutationVariables>;
+export const CheckoutCompleteDocument = gql`
+    mutation checkoutComplete($checkoutToken: UUID!, $paymentData: JSONString) {
+  checkoutComplete(token: $checkoutToken, paymentData: $paymentData) {
+    order {
+      id
+      status
+      token
+      billingAddress {
+        id
+        ...AddressDetailsFragment
+      }
+      shippingAddress {
+        id
+        ...AddressDetailsFragment
+      }
+    }
+    confirmationNeeded
+    confirmationData
+    errors {
+      field
+      message
+      variants
+      addressType
+    }
+  }
+}
+    ${AddressDetailsFragmentFragmentDoc}`;
+export type CheckoutCompleteMutationFn = Apollo.MutationFunction<CheckoutCompleteMutation, CheckoutCompleteMutationVariables>;
+
+/**
+ * __useCheckoutCompleteMutation__
+ *
+ * To run a mutation, you first call `useCheckoutCompleteMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutCompleteMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutCompleteMutation, { data, loading, error }] = useCheckoutCompleteMutation({
+ *   variables: {
+ *      checkoutToken: // value for 'checkoutToken'
+ *      paymentData: // value for 'paymentData'
+ *   },
+ * });
+ */
+export function useCheckoutCompleteMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutCompleteMutation, CheckoutCompleteMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutCompleteMutation, CheckoutCompleteMutationVariables>(CheckoutCompleteDocument, options);
+      }
+export type CheckoutCompleteMutationHookResult = ReturnType<typeof useCheckoutCompleteMutation>;
+export type CheckoutCompleteMutationResult = Apollo.MutationResult<CheckoutCompleteMutation>;
+export type CheckoutCompleteMutationOptions = Apollo.BaseMutationOptions<CheckoutCompleteMutation, CheckoutCompleteMutationVariables>;
 export const CheckoutCreateDocument = gql`
     mutation CheckoutCreate {
   checkoutCreate(
@@ -25831,6 +26929,172 @@ export function useCheckoutCreateMutation(baseOptions?: Apollo.MutationHookOptio
 export type CheckoutCreateMutationHookResult = ReturnType<typeof useCheckoutCreateMutation>;
 export type CheckoutCreateMutationResult = Apollo.MutationResult<CheckoutCreateMutation>;
 export type CheckoutCreateMutationOptions = Apollo.BaseMutationOptions<CheckoutCreateMutation, CheckoutCreateMutationVariables>;
+export const CheckoutPaymentCreateDocument = gql`
+    mutation checkoutPaymentCreate($checkoutToken: UUID!, $paymentInput: PaymentInput!) {
+  checkoutPaymentCreate(token: $checkoutToken, input: $paymentInput) {
+    payment {
+      id
+      total {
+        ...PriceFragment
+      }
+    }
+    errors {
+      field
+      message
+    }
+  }
+}
+    ${PriceFragmentFragmentDoc}`;
+export type CheckoutPaymentCreateMutationFn = Apollo.MutationFunction<CheckoutPaymentCreateMutation, CheckoutPaymentCreateMutationVariables>;
+
+/**
+ * __useCheckoutPaymentCreateMutation__
+ *
+ * To run a mutation, you first call `useCheckoutPaymentCreateMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutPaymentCreateMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutPaymentCreateMutation, { data, loading, error }] = useCheckoutPaymentCreateMutation({
+ *   variables: {
+ *      checkoutToken: // value for 'checkoutToken'
+ *      paymentInput: // value for 'paymentInput'
+ *   },
+ * });
+ */
+export function useCheckoutPaymentCreateMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutPaymentCreateMutation, CheckoutPaymentCreateMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutPaymentCreateMutation, CheckoutPaymentCreateMutationVariables>(CheckoutPaymentCreateDocument, options);
+      }
+export type CheckoutPaymentCreateMutationHookResult = ReturnType<typeof useCheckoutPaymentCreateMutation>;
+export type CheckoutPaymentCreateMutationResult = Apollo.MutationResult<CheckoutPaymentCreateMutation>;
+export type CheckoutPaymentCreateMutationOptions = Apollo.BaseMutationOptions<CheckoutPaymentCreateMutation, CheckoutPaymentCreateMutationVariables>;
+export const CheckoutEmailUpdateDocument = gql`
+    mutation CheckoutEmailUpdate($token: UUID!, $email: String!, $locale: LanguageCodeEnum!) {
+  checkoutEmailUpdate(email: $email, token: $token) {
+    checkout {
+      ...CheckoutDetailsFragment
+    }
+    errors {
+      field
+      message
+    }
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}`;
+export type CheckoutEmailUpdateMutationFn = Apollo.MutationFunction<CheckoutEmailUpdateMutation, CheckoutEmailUpdateMutationVariables>;
+
+/**
+ * __useCheckoutEmailUpdateMutation__
+ *
+ * To run a mutation, you first call `useCheckoutEmailUpdateMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutEmailUpdateMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutEmailUpdateMutation, { data, loading, error }] = useCheckoutEmailUpdateMutation({
+ *   variables: {
+ *      token: // value for 'token'
+ *      email: // value for 'email'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCheckoutEmailUpdateMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutEmailUpdateMutation, CheckoutEmailUpdateMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutEmailUpdateMutation, CheckoutEmailUpdateMutationVariables>(CheckoutEmailUpdateDocument, options);
+      }
+export type CheckoutEmailUpdateMutationHookResult = ReturnType<typeof useCheckoutEmailUpdateMutation>;
+export type CheckoutEmailUpdateMutationResult = Apollo.MutationResult<CheckoutEmailUpdateMutation>;
+export type CheckoutEmailUpdateMutationOptions = Apollo.BaseMutationOptions<CheckoutEmailUpdateMutation, CheckoutEmailUpdateMutationVariables>;
+export const CheckoutLineUpdateDocument = gql`
+    mutation CheckoutLineUpdate($token: UUID, $lines: [CheckoutLineUpdateInput!]!, $locale: LanguageCodeEnum!) {
+  checkoutLinesUpdate(token: $token, lines: $lines) {
+    checkout {
+      ...CheckoutDetailsFragment
+    }
+    errors {
+      ...ErrorDetailsFragment
+    }
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}
+${ErrorDetailsFragmentFragmentDoc}`;
+export type CheckoutLineUpdateMutationFn = Apollo.MutationFunction<CheckoutLineUpdateMutation, CheckoutLineUpdateMutationVariables>;
+
+/**
+ * __useCheckoutLineUpdateMutation__
+ *
+ * To run a mutation, you first call `useCheckoutLineUpdateMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutLineUpdateMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutLineUpdateMutation, { data, loading, error }] = useCheckoutLineUpdateMutation({
+ *   variables: {
+ *      token: // value for 'token'
+ *      lines: // value for 'lines'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCheckoutLineUpdateMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutLineUpdateMutation, CheckoutLineUpdateMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutLineUpdateMutation, CheckoutLineUpdateMutationVariables>(CheckoutLineUpdateDocument, options);
+      }
+export type CheckoutLineUpdateMutationHookResult = ReturnType<typeof useCheckoutLineUpdateMutation>;
+export type CheckoutLineUpdateMutationResult = Apollo.MutationResult<CheckoutLineUpdateMutation>;
+export type CheckoutLineUpdateMutationOptions = Apollo.BaseMutationOptions<CheckoutLineUpdateMutation, CheckoutLineUpdateMutationVariables>;
+export const RemoveProductFromCheckoutDocument = gql`
+    mutation RemoveProductFromCheckout($checkoutToken: UUID!, $lineId: ID!, $locale: LanguageCodeEnum!) {
+  checkoutLineDelete(token: $checkoutToken, lineId: $lineId) {
+    checkout {
+      ...CheckoutDetailsFragment
+    }
+    errors {
+      field
+      message
+    }
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}`;
+export type RemoveProductFromCheckoutMutationFn = Apollo.MutationFunction<RemoveProductFromCheckoutMutation, RemoveProductFromCheckoutMutationVariables>;
+
+/**
+ * __useRemoveProductFromCheckoutMutation__
+ *
+ * To run a mutation, you first call `useRemoveProductFromCheckoutMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRemoveProductFromCheckoutMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [removeProductFromCheckoutMutation, { data, loading, error }] = useRemoveProductFromCheckoutMutation({
+ *   variables: {
+ *      checkoutToken: // value for 'checkoutToken'
+ *      lineId: // value for 'lineId'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useRemoveProductFromCheckoutMutation(baseOptions?: Apollo.MutationHookOptions<RemoveProductFromCheckoutMutation, RemoveProductFromCheckoutMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<RemoveProductFromCheckoutMutation, RemoveProductFromCheckoutMutationVariables>(RemoveProductFromCheckoutDocument, options);
+      }
+export type RemoveProductFromCheckoutMutationHookResult = ReturnType<typeof useRemoveProductFromCheckoutMutation>;
+export type RemoveProductFromCheckoutMutationResult = Apollo.MutationResult<RemoveProductFromCheckoutMutation>;
+export type RemoveProductFromCheckoutMutationOptions = Apollo.BaseMutationOptions<RemoveProductFromCheckoutMutation, RemoveProductFromCheckoutMutationVariables>;
 export const CheckoutRemoveProductDocument = gql`
     mutation CheckoutRemoveProduct($checkoutToken: UUID!, $lineId: ID!) {
   checkoutLineDelete(token: $checkoutToken, lineId: $lineId) {
@@ -25870,6 +27134,173 @@ export function useCheckoutRemoveProductMutation(baseOptions?: Apollo.MutationHo
 export type CheckoutRemoveProductMutationHookResult = ReturnType<typeof useCheckoutRemoveProductMutation>;
 export type CheckoutRemoveProductMutationResult = Apollo.MutationResult<CheckoutRemoveProductMutation>;
 export type CheckoutRemoveProductMutationOptions = Apollo.BaseMutationOptions<CheckoutRemoveProductMutation, CheckoutRemoveProductMutationVariables>;
+export const CheckoutShippingAddressUpdateDocument = gql`
+    mutation CheckoutShippingAddressUpdate($token: UUID!, $address: AddressInput!, $locale: LanguageCodeEnum!) {
+  checkoutShippingAddressUpdate(shippingAddress: $address, token: $token) {
+    checkout {
+      ...CheckoutDetailsFragment
+    }
+    errors {
+      field
+      message
+      code
+    }
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}`;
+export type CheckoutShippingAddressUpdateMutationFn = Apollo.MutationFunction<CheckoutShippingAddressUpdateMutation, CheckoutShippingAddressUpdateMutationVariables>;
+
+/**
+ * __useCheckoutShippingAddressUpdateMutation__
+ *
+ * To run a mutation, you first call `useCheckoutShippingAddressUpdateMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutShippingAddressUpdateMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutShippingAddressUpdateMutation, { data, loading, error }] = useCheckoutShippingAddressUpdateMutation({
+ *   variables: {
+ *      token: // value for 'token'
+ *      address: // value for 'address'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCheckoutShippingAddressUpdateMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutShippingAddressUpdateMutation, CheckoutShippingAddressUpdateMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutShippingAddressUpdateMutation, CheckoutShippingAddressUpdateMutationVariables>(CheckoutShippingAddressUpdateDocument, options);
+      }
+export type CheckoutShippingAddressUpdateMutationHookResult = ReturnType<typeof useCheckoutShippingAddressUpdateMutation>;
+export type CheckoutShippingAddressUpdateMutationResult = Apollo.MutationResult<CheckoutShippingAddressUpdateMutation>;
+export type CheckoutShippingAddressUpdateMutationOptions = Apollo.BaseMutationOptions<CheckoutShippingAddressUpdateMutation, CheckoutShippingAddressUpdateMutationVariables>;
+export const CheckoutShippingMethodUpdateDocument = gql`
+    mutation CheckoutShippingMethodUpdate($token: UUID!, $shippingMethodId: ID!, $locale: LanguageCodeEnum!) {
+  checkoutShippingMethodUpdate(shippingMethodId: $shippingMethodId, token: $token) {
+    checkout {
+      ...CheckoutDetailsFragment
+    }
+    errors {
+      field
+      message
+      code
+    }
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}`;
+export type CheckoutShippingMethodUpdateMutationFn = Apollo.MutationFunction<CheckoutShippingMethodUpdateMutation, CheckoutShippingMethodUpdateMutationVariables>;
+
+/**
+ * __useCheckoutShippingMethodUpdateMutation__
+ *
+ * To run a mutation, you first call `useCheckoutShippingMethodUpdateMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutShippingMethodUpdateMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [checkoutShippingMethodUpdateMutation, { data, loading, error }] = useCheckoutShippingMethodUpdateMutation({
+ *   variables: {
+ *      token: // value for 'token'
+ *      shippingMethodId: // value for 'shippingMethodId'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCheckoutShippingMethodUpdateMutation(baseOptions?: Apollo.MutationHookOptions<CheckoutShippingMethodUpdateMutation, CheckoutShippingMethodUpdateMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CheckoutShippingMethodUpdateMutation, CheckoutShippingMethodUpdateMutationVariables>(CheckoutShippingMethodUpdateDocument, options);
+      }
+export type CheckoutShippingMethodUpdateMutationHookResult = ReturnType<typeof useCheckoutShippingMethodUpdateMutation>;
+export type CheckoutShippingMethodUpdateMutationResult = Apollo.MutationResult<CheckoutShippingMethodUpdateMutation>;
+export type CheckoutShippingMethodUpdateMutationOptions = Apollo.BaseMutationOptions<CheckoutShippingMethodUpdateMutation, CheckoutShippingMethodUpdateMutationVariables>;
+export const SetAddressDefaultDocument = gql`
+    mutation SetAddressDefault($id: ID!, $type: AddressTypeEnum!) {
+  accountSetDefaultAddress(id: $id, type: $type) {
+    user {
+      addresses {
+        ...AddressDetailsFragment
+      }
+    }
+    errors {
+      code
+      message
+    }
+  }
+}
+    ${AddressDetailsFragmentFragmentDoc}`;
+export type SetAddressDefaultMutationFn = Apollo.MutationFunction<SetAddressDefaultMutation, SetAddressDefaultMutationVariables>;
+
+/**
+ * __useSetAddressDefaultMutation__
+ *
+ * To run a mutation, you first call `useSetAddressDefaultMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSetAddressDefaultMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [setAddressDefaultMutation, { data, loading, error }] = useSetAddressDefaultMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      type: // value for 'type'
+ *   },
+ * });
+ */
+export function useSetAddressDefaultMutation(baseOptions?: Apollo.MutationHookOptions<SetAddressDefaultMutation, SetAddressDefaultMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<SetAddressDefaultMutation, SetAddressDefaultMutationVariables>(SetAddressDefaultDocument, options);
+      }
+export type SetAddressDefaultMutationHookResult = ReturnType<typeof useSetAddressDefaultMutation>;
+export type SetAddressDefaultMutationResult = Apollo.MutationResult<SetAddressDefaultMutation>;
+export type SetAddressDefaultMutationOptions = Apollo.BaseMutationOptions<SetAddressDefaultMutation, SetAddressDefaultMutationVariables>;
+export const PasswordChangeDocument = gql`
+    mutation PasswordChange($newPassword: String!, $oldPassword: String!) {
+  passwordChange(newPassword: $newPassword, oldPassword: $oldPassword) {
+    user {
+      email
+    }
+    errors {
+      field
+      message
+      code
+    }
+  }
+}
+    `;
+export type PasswordChangeMutationFn = Apollo.MutationFunction<PasswordChangeMutation, PasswordChangeMutationVariables>;
+
+/**
+ * __usePasswordChangeMutation__
+ *
+ * To run a mutation, you first call `usePasswordChangeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `usePasswordChangeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [passwordChangeMutation, { data, loading, error }] = usePasswordChangeMutation({
+ *   variables: {
+ *      newPassword: // value for 'newPassword'
+ *      oldPassword: // value for 'oldPassword'
+ *   },
+ * });
+ */
+export function usePasswordChangeMutation(baseOptions?: Apollo.MutationHookOptions<PasswordChangeMutation, PasswordChangeMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<PasswordChangeMutation, PasswordChangeMutationVariables>(PasswordChangeDocument, options);
+      }
+export type PasswordChangeMutationHookResult = ReturnType<typeof usePasswordChangeMutation>;
+export type PasswordChangeMutationResult = Apollo.MutationResult<PasswordChangeMutation>;
+export type PasswordChangeMutationOptions = Apollo.BaseMutationOptions<PasswordChangeMutation, PasswordChangeMutationVariables>;
 export const ProductAddVariantToCartDocument = gql`
     mutation ProductAddVariantToCart($checkoutToken: UUID!, $variantId: ID!) {
   checkoutLinesAdd(
@@ -25922,6 +27353,250 @@ export function useProductAddVariantToCartMutation(baseOptions?: Apollo.Mutation
 export type ProductAddVariantToCartMutationHookResult = ReturnType<typeof useProductAddVariantToCartMutation>;
 export type ProductAddVariantToCartMutationResult = Apollo.MutationResult<ProductAddVariantToCartMutation>;
 export type ProductAddVariantToCartMutationOptions = Apollo.BaseMutationOptions<ProductAddVariantToCartMutation, ProductAddVariantToCartMutationVariables>;
+export const RegisterDocument = gql`
+    mutation Register($input: AccountRegisterInput!) {
+  accountRegister(input: $input) {
+    errors {
+      message
+      field
+      code
+    }
+  }
+}
+    `;
+export type RegisterMutationFn = Apollo.MutationFunction<RegisterMutation, RegisterMutationVariables>;
+
+/**
+ * __useRegisterMutation__
+ *
+ * To run a mutation, you first call `useRegisterMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRegisterMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [registerMutation, { data, loading, error }] = useRegisterMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useRegisterMutation(baseOptions?: Apollo.MutationHookOptions<RegisterMutation, RegisterMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument, options);
+      }
+export type RegisterMutationHookResult = ReturnType<typeof useRegisterMutation>;
+export type RegisterMutationResult = Apollo.MutationResult<RegisterMutation>;
+export type RegisterMutationOptions = Apollo.BaseMutationOptions<RegisterMutation, RegisterMutationVariables>;
+export const RequestEmailChangeDocument = gql`
+    mutation RequestEmailChange($newEmail: String!, $password: String!, $redirectUrl: String!) {
+  requestEmailChange(
+    channel: "default-channel"
+    newEmail: $newEmail
+    password: $password
+    redirectUrl: $redirectUrl
+  ) {
+    user {
+      email
+    }
+    errors {
+      field
+      message
+      code
+    }
+  }
+}
+    `;
+export type RequestEmailChangeMutationFn = Apollo.MutationFunction<RequestEmailChangeMutation, RequestEmailChangeMutationVariables>;
+
+/**
+ * __useRequestEmailChangeMutation__
+ *
+ * To run a mutation, you first call `useRequestEmailChangeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRequestEmailChangeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [requestEmailChangeMutation, { data, loading, error }] = useRequestEmailChangeMutation({
+ *   variables: {
+ *      newEmail: // value for 'newEmail'
+ *      password: // value for 'password'
+ *      redirectUrl: // value for 'redirectUrl'
+ *   },
+ * });
+ */
+export function useRequestEmailChangeMutation(baseOptions?: Apollo.MutationHookOptions<RequestEmailChangeMutation, RequestEmailChangeMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<RequestEmailChangeMutation, RequestEmailChangeMutationVariables>(RequestEmailChangeDocument, options);
+      }
+export type RequestEmailChangeMutationHookResult = ReturnType<typeof useRequestEmailChangeMutation>;
+export type RequestEmailChangeMutationResult = Apollo.MutationResult<RequestEmailChangeMutation>;
+export type RequestEmailChangeMutationOptions = Apollo.BaseMutationOptions<RequestEmailChangeMutation, RequestEmailChangeMutationVariables>;
+export const AvailableShippingMethodsDocument = gql`
+    query AvailableShippingMethods($channel: String!, $locale: LanguageCodeEnum!) {
+  shop {
+    availableShippingMethods(channel: $channel) {
+      id
+      name
+      translation(languageCode: $locale) {
+        id
+        name
+      }
+      price {
+        ...PriceFragment
+      }
+    }
+  }
+}
+    ${PriceFragmentFragmentDoc}`;
+
+/**
+ * __useAvailableShippingMethodsQuery__
+ *
+ * To run a query within a React component, call `useAvailableShippingMethodsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAvailableShippingMethodsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAvailableShippingMethodsQuery({
+ *   variables: {
+ *      channel: // value for 'channel'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useAvailableShippingMethodsQuery(baseOptions: Apollo.QueryHookOptions<AvailableShippingMethodsQuery, AvailableShippingMethodsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AvailableShippingMethodsQuery, AvailableShippingMethodsQueryVariables>(AvailableShippingMethodsDocument, options);
+      }
+export function useAvailableShippingMethodsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AvailableShippingMethodsQuery, AvailableShippingMethodsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AvailableShippingMethodsQuery, AvailableShippingMethodsQueryVariables>(AvailableShippingMethodsDocument, options);
+        }
+export type AvailableShippingMethodsQueryHookResult = ReturnType<typeof useAvailableShippingMethodsQuery>;
+export type AvailableShippingMethodsLazyQueryHookResult = ReturnType<typeof useAvailableShippingMethodsLazyQuery>;
+export type AvailableShippingMethodsQueryResult = Apollo.QueryResult<AvailableShippingMethodsQuery, AvailableShippingMethodsQueryVariables>;
+export const CategoryBySlugDocument = gql`
+    query CategoryBySlug($slug: String!, $locale: LanguageCodeEnum!) {
+  category(slug: $slug) {
+    ...CategoryDetailsFragment
+  }
+}
+    ${CategoryDetailsFragmentFragmentDoc}`;
+
+/**
+ * __useCategoryBySlugQuery__
+ *
+ * To run a query within a React component, call `useCategoryBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCategoryBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCategoryBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCategoryBySlugQuery(baseOptions: Apollo.QueryHookOptions<CategoryBySlugQuery, CategoryBySlugQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CategoryBySlugQuery, CategoryBySlugQueryVariables>(CategoryBySlugDocument, options);
+      }
+export function useCategoryBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CategoryBySlugQuery, CategoryBySlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CategoryBySlugQuery, CategoryBySlugQueryVariables>(CategoryBySlugDocument, options);
+        }
+export type CategoryBySlugQueryHookResult = ReturnType<typeof useCategoryBySlugQuery>;
+export type CategoryBySlugLazyQueryHookResult = ReturnType<typeof useCategoryBySlugLazyQuery>;
+export type CategoryBySlugQueryResult = Apollo.QueryResult<CategoryBySlugQuery, CategoryBySlugQueryVariables>;
+export const CategoryPathsDocument = gql`
+    query CategoryPaths($after: String) {
+  categories(first: 100, after: $after) {
+    pageInfo {
+      ...PageInfoFragment
+    }
+    edges {
+      node {
+        slug
+      }
+    }
+  }
+}
+    ${PageInfoFragmentFragmentDoc}`;
+
+/**
+ * __useCategoryPathsQuery__
+ *
+ * To run a query within a React component, call `useCategoryPathsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCategoryPathsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCategoryPathsQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *   },
+ * });
+ */
+export function useCategoryPathsQuery(baseOptions?: Apollo.QueryHookOptions<CategoryPathsQuery, CategoryPathsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CategoryPathsQuery, CategoryPathsQueryVariables>(CategoryPathsDocument, options);
+      }
+export function useCategoryPathsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CategoryPathsQuery, CategoryPathsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CategoryPathsQuery, CategoryPathsQueryVariables>(CategoryPathsDocument, options);
+        }
+export type CategoryPathsQueryHookResult = ReturnType<typeof useCategoryPathsQuery>;
+export type CategoryPathsLazyQueryHookResult = ReturnType<typeof useCategoryPathsLazyQuery>;
+export type CategoryPathsQueryResult = Apollo.QueryResult<CategoryPathsQuery, CategoryPathsQueryVariables>;
+export const CheckoutByTokenDocument = gql`
+    query CheckoutByToken($checkoutToken: UUID!, $locale: LanguageCodeEnum!) {
+  checkout(token: $checkoutToken) {
+    ...CheckoutDetailsFragment
+  }
+}
+    ${CheckoutDetailsFragmentFragmentDoc}`;
+
+/**
+ * __useCheckoutByTokenQuery__
+ *
+ * To run a query within a React component, call `useCheckoutByTokenQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCheckoutByTokenQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCheckoutByTokenQuery({
+ *   variables: {
+ *      checkoutToken: // value for 'checkoutToken'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCheckoutByTokenQuery(baseOptions: Apollo.QueryHookOptions<CheckoutByTokenQuery, CheckoutByTokenQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CheckoutByTokenQuery, CheckoutByTokenQueryVariables>(CheckoutByTokenDocument, options);
+      }
+export function useCheckoutByTokenLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CheckoutByTokenQuery, CheckoutByTokenQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CheckoutByTokenQuery, CheckoutByTokenQueryVariables>(CheckoutByTokenDocument, options);
+        }
+export type CheckoutByTokenQueryHookResult = ReturnType<typeof useCheckoutByTokenQuery>;
+export type CheckoutByTokenLazyQueryHookResult = ReturnType<typeof useCheckoutByTokenLazyQuery>;
+export type CheckoutByTokenQueryResult = Apollo.QueryResult<CheckoutByTokenQuery, CheckoutByTokenQueryVariables>;
 export const CheckoutFetchByTokenDocument = gql`
     query CheckoutFetchByToken($checkoutToken: UUID!) {
   checkout(token: $checkoutToken) {
@@ -25957,6 +27632,585 @@ export function useCheckoutFetchByTokenLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type CheckoutFetchByTokenQueryHookResult = ReturnType<typeof useCheckoutFetchByTokenQuery>;
 export type CheckoutFetchByTokenLazyQueryHookResult = ReturnType<typeof useCheckoutFetchByTokenLazyQuery>;
 export type CheckoutFetchByTokenQueryResult = Apollo.QueryResult<CheckoutFetchByTokenQuery, CheckoutFetchByTokenQueryVariables>;
+export const CollectionBySlugDocument = gql`
+    query CollectionBySlug($slug: String!, $channel: String!, $locale: LanguageCodeEnum!) {
+  collection(slug: $slug, channel: $channel) {
+    id
+    ...CollectionDetailsFragment
+    backgroundImage {
+      ...ImageFragment
+    }
+  }
+}
+    ${CollectionDetailsFragmentFragmentDoc}
+${ImageFragmentFragmentDoc}`;
+
+/**
+ * __useCollectionBySlugQuery__
+ *
+ * To run a query within a React component, call `useCollectionBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCollectionBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCollectionBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      channel: // value for 'channel'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useCollectionBySlugQuery(baseOptions: Apollo.QueryHookOptions<CollectionBySlugQuery, CollectionBySlugQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CollectionBySlugQuery, CollectionBySlugQueryVariables>(CollectionBySlugDocument, options);
+      }
+export function useCollectionBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CollectionBySlugQuery, CollectionBySlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CollectionBySlugQuery, CollectionBySlugQueryVariables>(CollectionBySlugDocument, options);
+        }
+export type CollectionBySlugQueryHookResult = ReturnType<typeof useCollectionBySlugQuery>;
+export type CollectionBySlugLazyQueryHookResult = ReturnType<typeof useCollectionBySlugLazyQuery>;
+export type CollectionBySlugQueryResult = Apollo.QueryResult<CollectionBySlugQuery, CollectionBySlugQueryVariables>;
+export const CollectionPathsDocument = gql`
+    query CollectionPaths($after: String, $channel: String!) {
+  collections(first: 20, channel: $channel, after: $after) {
+    pageInfo {
+      ...PageInfoFragment
+    }
+    edges {
+      node {
+        slug
+      }
+    }
+  }
+}
+    ${PageInfoFragmentFragmentDoc}`;
+
+/**
+ * __useCollectionPathsQuery__
+ *
+ * To run a query within a React component, call `useCollectionPathsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCollectionPathsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCollectionPathsQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      channel: // value for 'channel'
+ *   },
+ * });
+ */
+export function useCollectionPathsQuery(baseOptions: Apollo.QueryHookOptions<CollectionPathsQuery, CollectionPathsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CollectionPathsQuery, CollectionPathsQueryVariables>(CollectionPathsDocument, options);
+      }
+export function useCollectionPathsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CollectionPathsQuery, CollectionPathsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CollectionPathsQuery, CollectionPathsQueryVariables>(CollectionPathsDocument, options);
+        }
+export type CollectionPathsQueryHookResult = ReturnType<typeof useCollectionPathsQuery>;
+export type CollectionPathsLazyQueryHookResult = ReturnType<typeof useCollectionPathsLazyQuery>;
+export type CollectionPathsQueryResult = Apollo.QueryResult<CollectionPathsQuery, CollectionPathsQueryVariables>;
+export const CurrentUserDetailsDocument = gql`
+    query CurrentUserDetails {
+  me {
+    id
+    lastLogin
+    dateJoined
+    email
+    firstName
+    lastName
+    avatar {
+      ...ImageFragment
+    }
+    orders {
+      totalCount
+    }
+  }
+}
+    ${ImageFragmentFragmentDoc}`;
+
+/**
+ * __useCurrentUserDetailsQuery__
+ *
+ * To run a query within a React component, call `useCurrentUserDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCurrentUserDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCurrentUserDetailsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCurrentUserDetailsQuery(baseOptions?: Apollo.QueryHookOptions<CurrentUserDetailsQuery, CurrentUserDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CurrentUserDetailsQuery, CurrentUserDetailsQueryVariables>(CurrentUserDetailsDocument, options);
+      }
+export function useCurrentUserDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CurrentUserDetailsQuery, CurrentUserDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CurrentUserDetailsQuery, CurrentUserDetailsQueryVariables>(CurrentUserDetailsDocument, options);
+        }
+export type CurrentUserDetailsQueryHookResult = ReturnType<typeof useCurrentUserDetailsQuery>;
+export type CurrentUserDetailsLazyQueryHookResult = ReturnType<typeof useCurrentUserDetailsLazyQuery>;
+export type CurrentUserDetailsQueryResult = Apollo.QueryResult<CurrentUserDetailsQuery, CurrentUserDetailsQueryVariables>;
+export const FilteringAttributesQueryDocument = gql`
+    query FilteringAttributesQuery($filter: AttributeFilterInput!, $channel: String!, $locale: LanguageCodeEnum!) {
+  attributes(filter: $filter, first: 100, channel: $channel) {
+    totalCount
+    edges {
+      node {
+        ...AttributeFilterFragment
+      }
+    }
+  }
+}
+    ${AttributeFilterFragmentFragmentDoc}`;
+
+/**
+ * __useFilteringAttributesQueryQuery__
+ *
+ * To run a query within a React component, call `useFilteringAttributesQueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFilteringAttributesQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFilteringAttributesQueryQuery({
+ *   variables: {
+ *      filter: // value for 'filter'
+ *      channel: // value for 'channel'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useFilteringAttributesQueryQuery(baseOptions: Apollo.QueryHookOptions<FilteringAttributesQueryQuery, FilteringAttributesQueryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FilteringAttributesQueryQuery, FilteringAttributesQueryQueryVariables>(FilteringAttributesQueryDocument, options);
+      }
+export function useFilteringAttributesQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FilteringAttributesQueryQuery, FilteringAttributesQueryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FilteringAttributesQueryQuery, FilteringAttributesQueryQueryVariables>(FilteringAttributesQueryDocument, options);
+        }
+export type FilteringAttributesQueryQueryHookResult = ReturnType<typeof useFilteringAttributesQueryQuery>;
+export type FilteringAttributesQueryLazyQueryHookResult = ReturnType<typeof useFilteringAttributesQueryLazyQuery>;
+export type FilteringAttributesQueryQueryResult = Apollo.QueryResult<FilteringAttributesQueryQuery, FilteringAttributesQueryQueryVariables>;
+export const FooterMenuDocument = gql`
+    query FooterMenu($locale: LanguageCodeEnum!, $channel: String!) {
+  menu(slug: "footer", channel: $channel) {
+    id
+    items {
+      children {
+        ...MenuItemFragment
+      }
+      ...MenuItemFragment
+    }
+  }
+}
+    ${MenuItemFragmentFragmentDoc}`;
+
+/**
+ * __useFooterMenuQuery__
+ *
+ * To run a query within a React component, call `useFooterMenuQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFooterMenuQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFooterMenuQuery({
+ *   variables: {
+ *      locale: // value for 'locale'
+ *      channel: // value for 'channel'
+ *   },
+ * });
+ */
+export function useFooterMenuQuery(baseOptions: Apollo.QueryHookOptions<FooterMenuQuery, FooterMenuQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FooterMenuQuery, FooterMenuQueryVariables>(FooterMenuDocument, options);
+      }
+export function useFooterMenuLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FooterMenuQuery, FooterMenuQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FooterMenuQuery, FooterMenuQueryVariables>(FooterMenuDocument, options);
+        }
+export type FooterMenuQueryHookResult = ReturnType<typeof useFooterMenuQuery>;
+export type FooterMenuLazyQueryHookResult = ReturnType<typeof useFooterMenuLazyQuery>;
+export type FooterMenuQueryResult = Apollo.QueryResult<FooterMenuQuery, FooterMenuQueryVariables>;
+export const HomepageBlocksQueryDocument = gql`
+    query HomepageBlocksQuery($slug: String!, $channel: String!, $locale: LanguageCodeEnum!) {
+  menu(channel: $channel, slug: $slug) {
+    id
+    name
+    slug
+    items {
+      ...HomepageBlockFragment
+    }
+  }
+}
+    ${HomepageBlockFragmentFragmentDoc}`;
+
+/**
+ * __useHomepageBlocksQueryQuery__
+ *
+ * To run a query within a React component, call `useHomepageBlocksQueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useHomepageBlocksQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useHomepageBlocksQueryQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      channel: // value for 'channel'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useHomepageBlocksQueryQuery(baseOptions: Apollo.QueryHookOptions<HomepageBlocksQueryQuery, HomepageBlocksQueryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<HomepageBlocksQueryQuery, HomepageBlocksQueryQueryVariables>(HomepageBlocksQueryDocument, options);
+      }
+export function useHomepageBlocksQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HomepageBlocksQueryQuery, HomepageBlocksQueryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<HomepageBlocksQueryQuery, HomepageBlocksQueryQueryVariables>(HomepageBlocksQueryDocument, options);
+        }
+export type HomepageBlocksQueryQueryHookResult = ReturnType<typeof useHomepageBlocksQueryQuery>;
+export type HomepageBlocksQueryLazyQueryHookResult = ReturnType<typeof useHomepageBlocksQueryLazyQuery>;
+export type HomepageBlocksQueryQueryResult = Apollo.QueryResult<HomepageBlocksQueryQuery, HomepageBlocksQueryQueryVariables>;
+export const MainMenuDocument = gql`
+    query MainMenu($locale: LanguageCodeEnum!, $channel: String!) {
+  menu(slug: "navbar", channel: $channel) {
+    id
+    items {
+      ...MenuItemWithChildrenFragment
+    }
+  }
+}
+    ${MenuItemWithChildrenFragmentFragmentDoc}`;
+
+/**
+ * __useMainMenuQuery__
+ *
+ * To run a query within a React component, call `useMainMenuQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMainMenuQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMainMenuQuery({
+ *   variables: {
+ *      locale: // value for 'locale'
+ *      channel: // value for 'channel'
+ *   },
+ * });
+ */
+export function useMainMenuQuery(baseOptions: Apollo.QueryHookOptions<MainMenuQuery, MainMenuQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MainMenuQuery, MainMenuQueryVariables>(MainMenuDocument, options);
+      }
+export function useMainMenuLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MainMenuQuery, MainMenuQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MainMenuQuery, MainMenuQueryVariables>(MainMenuDocument, options);
+        }
+export type MainMenuQueryHookResult = ReturnType<typeof useMainMenuQuery>;
+export type MainMenuLazyQueryHookResult = ReturnType<typeof useMainMenuLazyQuery>;
+export type MainMenuQueryResult = Apollo.QueryResult<MainMenuQuery, MainMenuQueryVariables>;
+export const OrderDetailsQueryDocument = gql`
+    query OrderDetailsQuery($token: UUID!) {
+  orderByToken(token: $token) {
+    id
+    number
+    shippingPrice {
+      gross {
+        ...PriceFragment
+      }
+    }
+    created
+    lines {
+      id
+      thumbnail {
+        ...ImageFragment
+      }
+      totalPrice {
+        gross {
+          ...PriceFragment
+        }
+      }
+      productName
+      variantName
+      quantity
+    }
+    total {
+      gross {
+        ...PriceFragment
+      }
+    }
+    statusDisplay
+  }
+}
+    ${PriceFragmentFragmentDoc}
+${ImageFragmentFragmentDoc}`;
+
+/**
+ * __useOrderDetailsQueryQuery__
+ *
+ * To run a query within a React component, call `useOrderDetailsQueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useOrderDetailsQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOrderDetailsQueryQuery({
+ *   variables: {
+ *      token: // value for 'token'
+ *   },
+ * });
+ */
+export function useOrderDetailsQueryQuery(baseOptions: Apollo.QueryHookOptions<OrderDetailsQueryQuery, OrderDetailsQueryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<OrderDetailsQueryQuery, OrderDetailsQueryQueryVariables>(OrderDetailsQueryDocument, options);
+      }
+export function useOrderDetailsQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<OrderDetailsQueryQuery, OrderDetailsQueryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<OrderDetailsQueryQuery, OrderDetailsQueryQueryVariables>(OrderDetailsQueryDocument, options);
+        }
+export type OrderDetailsQueryQueryHookResult = ReturnType<typeof useOrderDetailsQueryQuery>;
+export type OrderDetailsQueryLazyQueryHookResult = ReturnType<typeof useOrderDetailsQueryLazyQuery>;
+export type OrderDetailsQueryQueryResult = Apollo.QueryResult<OrderDetailsQueryQuery, OrderDetailsQueryQueryVariables>;
+export const OrderDetailsByTokenDocument = gql`
+    query OrderDetailsByToken($token: UUID!) {
+  orderByToken(token: $token) {
+    id
+    status
+    number
+    shippingAddress {
+      ...AddressDetailsFragment
+    }
+    billingAddress {
+      ...AddressDetailsFragment
+    }
+    subtotal {
+      net {
+        ...PriceFragment
+      }
+      tax {
+        ...PriceFragment
+      }
+    }
+    total {
+      gross {
+        ...PriceFragment
+      }
+    }
+    lines {
+      id
+      productName
+      variantName
+      quantity
+      thumbnail {
+        url
+        alt
+      }
+      unitPrice {
+        gross {
+          ...PriceFragment
+        }
+      }
+      totalPrice {
+        gross {
+          ...PriceFragment
+        }
+      }
+    }
+    shippingPrice {
+      gross {
+        ...PriceFragment
+      }
+    }
+  }
+}
+    ${AddressDetailsFragmentFragmentDoc}
+${PriceFragmentFragmentDoc}`;
+
+/**
+ * __useOrderDetailsByTokenQuery__
+ *
+ * To run a query within a React component, call `useOrderDetailsByTokenQuery` and pass it any options that fit your needs.
+ * When your component renders, `useOrderDetailsByTokenQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOrderDetailsByTokenQuery({
+ *   variables: {
+ *      token: // value for 'token'
+ *   },
+ * });
+ */
+export function useOrderDetailsByTokenQuery(baseOptions: Apollo.QueryHookOptions<OrderDetailsByTokenQuery, OrderDetailsByTokenQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<OrderDetailsByTokenQuery, OrderDetailsByTokenQueryVariables>(OrderDetailsByTokenDocument, options);
+      }
+export function useOrderDetailsByTokenLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<OrderDetailsByTokenQuery, OrderDetailsByTokenQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<OrderDetailsByTokenQuery, OrderDetailsByTokenQueryVariables>(OrderDetailsByTokenDocument, options);
+        }
+export type OrderDetailsByTokenQueryHookResult = ReturnType<typeof useOrderDetailsByTokenQuery>;
+export type OrderDetailsByTokenLazyQueryHookResult = ReturnType<typeof useOrderDetailsByTokenLazyQuery>;
+export type OrderDetailsByTokenQueryResult = Apollo.QueryResult<OrderDetailsByTokenQuery, OrderDetailsByTokenQueryVariables>;
+export const OrdersDocument = gql`
+    query Orders($before: String, $after: String) {
+  me {
+    orders(first: 10, before: $before, after: $after) {
+      edges {
+        cursor
+        node {
+          ...OrderDetailsFragment
+        }
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      totalCount
+    }
+  }
+}
+    ${OrderDetailsFragmentFragmentDoc}`;
+
+/**
+ * __useOrdersQuery__
+ *
+ * To run a query within a React component, call `useOrdersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useOrdersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOrdersQuery({
+ *   variables: {
+ *      before: // value for 'before'
+ *      after: // value for 'after'
+ *   },
+ * });
+ */
+export function useOrdersQuery(baseOptions?: Apollo.QueryHookOptions<OrdersQuery, OrdersQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<OrdersQuery, OrdersQueryVariables>(OrdersDocument, options);
+      }
+export function useOrdersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<OrdersQuery, OrdersQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<OrdersQuery, OrdersQueryVariables>(OrdersDocument, options);
+        }
+export type OrdersQueryHookResult = ReturnType<typeof useOrdersQuery>;
+export type OrdersLazyQueryHookResult = ReturnType<typeof useOrdersLazyQuery>;
+export type OrdersQueryResult = Apollo.QueryResult<OrdersQuery, OrdersQueryVariables>;
+export const PageDocument = gql`
+    query Page($slug: String!, $locale: LanguageCodeEnum!) {
+  page(slug: $slug) {
+    id
+    title
+    translation(languageCode: $locale) {
+      id
+      title
+      content
+    }
+    seoTitle
+    seoDescription
+    slug
+    created
+    content
+  }
+}
+    `;
+
+/**
+ * __usePageQuery__
+ *
+ * To run a query within a React component, call `usePageQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePageQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function usePageQuery(baseOptions: Apollo.QueryHookOptions<PageQuery, PageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PageQuery, PageQueryVariables>(PageDocument, options);
+      }
+export function usePageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PageQuery, PageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PageQuery, PageQueryVariables>(PageDocument, options);
+        }
+export type PageQueryHookResult = ReturnType<typeof usePageQuery>;
+export type PageLazyQueryHookResult = ReturnType<typeof usePageLazyQuery>;
+export type PageQueryResult = Apollo.QueryResult<PageQuery, PageQueryVariables>;
+export const PagePathsDocument = gql`
+    query PagePaths($after: String) {
+  pages(first: 100, after: $after) {
+    pageInfo {
+      ...PageInfoFragment
+    }
+    edges {
+      node {
+        slug
+      }
+    }
+  }
+}
+    ${PageInfoFragmentFragmentDoc}`;
+
+/**
+ * __usePagePathsQuery__
+ *
+ * To run a query within a React component, call `usePagePathsQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePagePathsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePagePathsQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *   },
+ * });
+ */
+export function usePagePathsQuery(baseOptions?: Apollo.QueryHookOptions<PagePathsQuery, PagePathsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PagePathsQuery, PagePathsQueryVariables>(PagePathsDocument, options);
+      }
+export function usePagePathsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PagePathsQuery, PagePathsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PagePathsQuery, PagePathsQueryVariables>(PagePathsDocument, options);
+        }
+export type PagePathsQueryHookResult = ReturnType<typeof usePagePathsQuery>;
+export type PagePathsLazyQueryHookResult = ReturnType<typeof usePagePathsLazyQuery>;
+export type PagePathsQueryResult = Apollo.QueryResult<PagePathsQuery, PagePathsQueryVariables>;
 export const ProductByIdDocument = gql`
     query ProductByID($id: ID!) {
   product(id: $id, channel: "default-channel") {
@@ -26011,6 +28265,103 @@ export function useProductByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type ProductByIdQueryHookResult = ReturnType<typeof useProductByIdQuery>;
 export type ProductByIdLazyQueryHookResult = ReturnType<typeof useProductByIdLazyQuery>;
 export type ProductByIdQueryResult = Apollo.QueryResult<ProductByIdQuery, ProductByIdQueryVariables>;
+export const ProductBySlugDocument = gql`
+    query ProductBySlug($slug: String!, $channel: String!, $locale: LanguageCodeEnum!) {
+  product(slug: $slug, channel: $channel) {
+    ...ProductDetailsFragment
+  }
+}
+    ${ProductDetailsFragmentFragmentDoc}`;
+
+/**
+ * __useProductBySlugQuery__
+ *
+ * To run a query within a React component, call `useProductBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProductBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProductBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      channel: // value for 'channel'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useProductBySlugQuery(baseOptions: Apollo.QueryHookOptions<ProductBySlugQuery, ProductBySlugQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProductBySlugQuery, ProductBySlugQueryVariables>(ProductBySlugDocument, options);
+      }
+export function useProductBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProductBySlugQuery, ProductBySlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProductBySlugQuery, ProductBySlugQueryVariables>(ProductBySlugDocument, options);
+        }
+export type ProductBySlugQueryHookResult = ReturnType<typeof useProductBySlugQuery>;
+export type ProductBySlugLazyQueryHookResult = ReturnType<typeof useProductBySlugLazyQuery>;
+export type ProductBySlugQueryResult = Apollo.QueryResult<ProductBySlugQuery, ProductBySlugQueryVariables>;
+export const ProductCollectionDocument = gql`
+    query ProductCollection($before: String, $after: String, $first: Int = 4, $filter: ProductFilterInput, $sortBy: ProductOrder, $channel: String!, $locale: LanguageCodeEnum!) {
+  products(
+    first: $first
+    channel: $channel
+    after: $after
+    before: $before
+    filter: $filter
+    sortBy: $sortBy
+  ) {
+    totalCount
+    edges {
+      cursor
+      node {
+        ...ProductCardFragment
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+  }
+}
+    ${ProductCardFragmentFragmentDoc}`;
+
+/**
+ * __useProductCollectionQuery__
+ *
+ * To run a query within a React component, call `useProductCollectionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProductCollectionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProductCollectionQuery({
+ *   variables: {
+ *      before: // value for 'before'
+ *      after: // value for 'after'
+ *      first: // value for 'first'
+ *      filter: // value for 'filter'
+ *      sortBy: // value for 'sortBy'
+ *      channel: // value for 'channel'
+ *      locale: // value for 'locale'
+ *   },
+ * });
+ */
+export function useProductCollectionQuery(baseOptions: Apollo.QueryHookOptions<ProductCollectionQuery, ProductCollectionQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProductCollectionQuery, ProductCollectionQueryVariables>(ProductCollectionDocument, options);
+      }
+export function useProductCollectionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProductCollectionQuery, ProductCollectionQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProductCollectionQuery, ProductCollectionQueryVariables>(ProductCollectionDocument, options);
+        }
+export type ProductCollectionQueryHookResult = ReturnType<typeof useProductCollectionQuery>;
+export type ProductCollectionLazyQueryHookResult = ReturnType<typeof useProductCollectionLazyQuery>;
+export type ProductCollectionQueryResult = Apollo.QueryResult<ProductCollectionQuery, ProductCollectionQueryVariables>;
 export const ProductFilterByNameDocument = gql`
     query ProductFilterByName($first: Int = 50, $after: String, $filter: ProductFilterInput!) {
   products(
@@ -26170,6 +28521,49 @@ export function useProductGetTwelveElementsLazyQuery(baseOptions?: Apollo.LazyQu
 export type ProductGetTwelveElementsQueryHookResult = ReturnType<typeof useProductGetTwelveElementsQuery>;
 export type ProductGetTwelveElementsLazyQueryHookResult = ReturnType<typeof useProductGetTwelveElementsLazyQuery>;
 export type ProductGetTwelveElementsQueryResult = Apollo.QueryResult<ProductGetTwelveElementsQuery, ProductGetTwelveElementsQueryVariables>;
+export const ProductPathsDocument = gql`
+    query ProductPaths($after: String, $channel: String!) {
+  products(first: 100, channel: $channel, after: $after) {
+    pageInfo {
+      ...PageInfoFragment
+    }
+    edges {
+      node {
+        slug
+      }
+    }
+  }
+}
+    ${PageInfoFragmentFragmentDoc}`;
+
+/**
+ * __useProductPathsQuery__
+ *
+ * To run a query within a React component, call `useProductPathsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProductPathsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProductPathsQuery({
+ *   variables: {
+ *      after: // value for 'after'
+ *      channel: // value for 'channel'
+ *   },
+ * });
+ */
+export function useProductPathsQuery(baseOptions: Apollo.QueryHookOptions<ProductPathsQuery, ProductPathsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProductPathsQuery, ProductPathsQueryVariables>(ProductPathsDocument, options);
+      }
+export function useProductPathsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProductPathsQuery, ProductPathsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProductPathsQuery, ProductPathsQueryVariables>(ProductPathsDocument, options);
+        }
+export type ProductPathsQueryHookResult = ReturnType<typeof useProductPathsQuery>;
+export type ProductPathsLazyQueryHookResult = ReturnType<typeof useProductPathsLazyQuery>;
+export type ProductPathsQueryResult = Apollo.QueryResult<ProductPathsQuery, ProductPathsQueryVariables>;
 export const ProductSearchTShirtDocument = gql`
     query ProductSearchTShirt {
   products(first: 12, channel: "default-channel", filter: {search: "t-shirt"}) {
@@ -26215,6 +28609,86 @@ export function useProductSearchTShirtLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type ProductSearchTShirtQueryHookResult = ReturnType<typeof useProductSearchTShirtQuery>;
 export type ProductSearchTShirtLazyQueryHookResult = ReturnType<typeof useProductSearchTShirtLazyQuery>;
 export type ProductSearchTShirtQueryResult = Apollo.QueryResult<ProductSearchTShirtQuery, ProductSearchTShirtQueryVariables>;
+export const UserDocument = gql`
+    query User {
+  user: me {
+    id
+    email
+    addresses {
+      ...AddressDetailsFragment
+    }
+    defaultBillingAddress {
+      ...AddressDetailsFragment
+    }
+    defaultShippingAddress {
+      ...AddressDetailsFragment
+    }
+  }
+}
+    ${AddressDetailsFragmentFragmentDoc}`;
+
+/**
+ * __useUserQuery__
+ *
+ * To run a query within a React component, call `useUserQuery` and pass it any options that fit your needs.
+ * When your component renders, `useUserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useUserQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useUserQuery(baseOptions?: Apollo.QueryHookOptions<UserQuery, UserQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<UserQuery, UserQueryVariables>(UserDocument, options);
+      }
+export function useUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<UserQuery, UserQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<UserQuery, UserQueryVariables>(UserDocument, options);
+        }
+export type UserQueryHookResult = ReturnType<typeof useUserQuery>;
+export type UserLazyQueryHookResult = ReturnType<typeof useUserLazyQuery>;
+export type UserQueryResult = Apollo.QueryResult<UserQuery, UserQueryVariables>;
+export const CurrentUserAddressesDocument = gql`
+    query CurrentUserAddresses {
+  me {
+    addresses {
+      ...AddressDetailsFragment
+    }
+  }
+}
+    ${AddressDetailsFragmentFragmentDoc}`;
+
+/**
+ * __useCurrentUserAddressesQuery__
+ *
+ * To run a query within a React component, call `useCurrentUserAddressesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCurrentUserAddressesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCurrentUserAddressesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCurrentUserAddressesQuery(baseOptions?: Apollo.QueryHookOptions<CurrentUserAddressesQuery, CurrentUserAddressesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CurrentUserAddressesQuery, CurrentUserAddressesQueryVariables>(CurrentUserAddressesDocument, options);
+      }
+export function useCurrentUserAddressesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CurrentUserAddressesQuery, CurrentUserAddressesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CurrentUserAddressesQuery, CurrentUserAddressesQueryVariables>(CurrentUserAddressesDocument, options);
+        }
+export type CurrentUserAddressesQueryHookResult = ReturnType<typeof useCurrentUserAddressesQuery>;
+export type CurrentUserAddressesLazyQueryHookResult = ReturnType<typeof useCurrentUserAddressesLazyQuery>;
+export type CurrentUserAddressesQueryResult = Apollo.QueryResult<CurrentUserAddressesQuery, CurrentUserAddressesQueryVariables>;
 export type AccountAddressCreateKeySpecifier = ('accountErrors' | 'address' | 'errors' | 'user' | AccountAddressCreateKeySpecifier)[];
 export type AccountAddressCreateFieldPolicy = {
 	accountErrors?: FieldPolicy<any> | FieldReadFunction<any>,
