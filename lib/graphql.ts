@@ -2,7 +2,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { relayStylePagination } from "@apollo/client/utilities";
 
 export const apolloClient = new ApolloClient({
-  uri: "http://shop-api.algomock.in/graphql/",
+  uri: "https://demo.saleor.io/graphql/",
   cache: new InMemoryCache({
     typePolicies: {
       Query: {

@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import {
   useCheckoutRemoveProductMutation,
 } from "@/saleor/api";
 
 import { useLocalStorage } from 'react-use';
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   products: any[];
@@ -19,11 +21,19 @@ const styles = {
   }
 }
 
+
+
 export const CartList = ({ products }: Props) => {
+  const router = useRouter();
   const [token] = useLocalStorage("token");
   const [CheckoutremoveProduct] = useCheckoutRemoveProductMutation();
 
+
+  const handleButtonClick = () => {
+    router.push(`/checkout?myObject=${encodeURIComponent(JSON.stringify(products))}`);
+  };
   return (
+    <>
     <ul role="list" className="divide-y divide-gray-200">
       {products.map((line) => {
         const lineID = line?.id || "";
@@ -79,5 +89,12 @@ export const CartList = ({ products }: Props) => {
         );
       })}
     </ul>
+    <button onClick={handleButtonClick}
+                type="submit"
+                className="bg-indigo-500 text-white px-6 py-2 rounded-md hover:bg-indigo-600"
+              >
+                Checkout 
+    </button>
+    </>
   );
 }

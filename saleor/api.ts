@@ -25894,6 +25894,21 @@ export type RequestEmailChangeMutationVariables = Exact<{
 
 export type RequestEmailChangeMutation = { __typename?: 'Mutation', requestEmailChange?: { __typename?: 'RequestEmailChange', user?: { __typename?: 'User', email: string } | null, errors: Array<{ __typename?: 'AccountError', field?: string | null, message?: string | null, code: AccountErrorCode }> } | null };
 
+export type TestMutationVariables = Exact<{
+  email: Scalars['String'];
+  quantity: Scalars['Int'];
+  variantId: Scalars['ID'];
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  streetAddress1: Scalars['String'];
+  city: Scalars['String'];
+  postalCode: Scalars['String'];
+  countryArea: Scalars['String'];
+}>;
+
+
+export type TestMutation = { __typename?: 'Mutation', checkoutCreate?: { __typename?: 'CheckoutCreate', checkout?: { __typename?: 'Checkout', id: string, isShippingRequired: boolean, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } } | null, errors: Array<{ __typename?: 'CheckoutError', field?: string | null, code: CheckoutErrorCode }> } | null };
+
 export type AvailableShippingMethodsQueryVariables = Exact<{
   channel: Scalars['String'];
   locale: LanguageCodeEnum;
@@ -27437,6 +27452,62 @@ export function useRequestEmailChangeMutation(baseOptions?: Apollo.MutationHookO
 export type RequestEmailChangeMutationHookResult = ReturnType<typeof useRequestEmailChangeMutation>;
 export type RequestEmailChangeMutationResult = Apollo.MutationResult<RequestEmailChangeMutation>;
 export type RequestEmailChangeMutationOptions = Apollo.BaseMutationOptions<RequestEmailChangeMutation, RequestEmailChangeMutationVariables>;
+export const TestDocument = gql`
+    mutation test($email: String!, $quantity: Int!, $variantId: ID!, $firstName: String!, $lastName: String!, $streetAddress1: String!, $city: String!, $postalCode: String!, $countryArea: String!) {
+  checkoutCreate(
+    input: {channel: "default-channel", email: $email, lines: [{quantity: $quantity, variantId: $variantId}], shippingAddress: {firstName: $firstName, lastName: $lastName, streetAddress1: $streetAddress1, city: $city, postalCode: $postalCode, countryArea: $countryArea}, billingAddress: {firstName: $firstName, lastName: $lastName, streetAddress1: $streetAddress1, city: $city, postalCode: $postalCode, countryArea: $countryArea}}
+  ) {
+    checkout {
+      id
+      totalPrice {
+        gross {
+          amount
+          currency
+        }
+      }
+      isShippingRequired
+    }
+    errors {
+      field
+      code
+    }
+  }
+}
+    `;
+export type TestMutationFn = Apollo.MutationFunction<TestMutation, TestMutationVariables>;
+
+/**
+ * __useTestMutation__
+ *
+ * To run a mutation, you first call `useTestMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useTestMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [testMutation, { data, loading, error }] = useTestMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *      quantity: // value for 'quantity'
+ *      variantId: // value for 'variantId'
+ *      firstName: // value for 'firstName'
+ *      lastName: // value for 'lastName'
+ *      streetAddress1: // value for 'streetAddress1'
+ *      city: // value for 'city'
+ *      postalCode: // value for 'postalCode'
+ *      countryArea: // value for 'countryArea'
+ *   },
+ * });
+ */
+export function useTestMutation(baseOptions?: Apollo.MutationHookOptions<TestMutation, TestMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<TestMutation, TestMutationVariables>(TestDocument, options);
+      }
+export type TestMutationHookResult = ReturnType<typeof useTestMutation>;
+export type TestMutationResult = Apollo.MutationResult<TestMutation>;
+export type TestMutationOptions = Apollo.BaseMutationOptions<TestMutation, TestMutationVariables>;
 export const AvailableShippingMethodsDocument = gql`
     query AvailableShippingMethods($channel: String!, $locale: LanguageCodeEnum!) {
   shop {

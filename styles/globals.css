@@ -21,3 +21,46 @@
 .link {
   @apply text-sm text-blue-600 hover:text-blue-500;
 }
+
+input[type='text'],
+input[type='email'],
+select {
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+select:focus {
+  border-color: #6366f1;
+}
+
+/* CSS for submit button */
+button[type='submit'] {
+  background-color: #6366f1;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type='submit']:hover {
+  background-color: #4f46e5;
+}
+
+.child{
+  display: inline-block;
+  border: 1px solid red;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}
+
+.parent {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}

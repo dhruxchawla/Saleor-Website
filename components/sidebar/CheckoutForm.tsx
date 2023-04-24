@@ -1,6 +1,30 @@
+import { useTestMutation } from '@/saleor/api';
 import React from 'react'
 
 function CheckoutForm() {
+const [checkoutCreate, { loading, error }] = useTestMutation()
+const handleButtonClick = () => {
+  // Call the mutation on button click
+  checkoutCreate({ variables:  {
+    "email" : "dhruv@mail.com",
+    "variantId" : "UHJvZHVjdFZhcmlhbnQ6NDY0",
+    "quantity": 2,
+    "firstName": "shash",
+    "lastName": "asdhb",
+    "streetAddress1": "ashfi",
+    "city" : "Michigan",
+    "postalCode": "49855",
+    "countryArea":"MI"
+  }  })
+    .then((result) => {
+      // Handle success
+      console.log('Mutation result:', result);
+    })
+    .catch((error) => {
+      // Handle error
+      console.error('Mutation error:', error);
+    });
+};
   return (
     <div>
       <div className=" min-h-screen flex items-center justify-center">
@@ -93,7 +117,7 @@ function CheckoutForm() {
                 {/* Add more country options here */}
               </select>
             </div>
-            <div className="mb-8">
+            {/* <div className="mb-8">
               <label htmlFor="cardNumber" className="block text-gray-700 mb-2">
                 Card Number
               </label>
@@ -127,10 +151,10 @@ function CheckoutForm() {
                   className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
-            </div>
+            </div> */}
             <div className="flex justify-between items-center">
               <p className="text-gray-600">Total: $99.99</p>
-              <button
+              <button onClick={handleButtonClick}
                 type="submit"
                 className="bg-indigo-500 text-white px-6 py-2 rounded-md hover:bg-indigo-600"
               >
