@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Router from 'next/router'
 
 import {
   useCheckoutRemoveProductMutation,
@@ -24,13 +24,15 @@ const styles = {
 
 
 export const CartList = ({ products }: Props) => {
-  const router = useRouter();
   const [token] = useLocalStorage("token");
   const [CheckoutremoveProduct] = useCheckoutRemoveProductMutation();
 
 
   const handleButtonClick = () => {
-    router.push(`/checkout?myObject=${encodeURIComponent(JSON.stringify(products))}`);
+    Router.push(
+      { pathname: "/checkout", query: { data : JSON.stringify(products) } },
+      "/checkout"
+    );
   };
   return (
     <>
