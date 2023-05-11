@@ -1,5 +1,5 @@
 query ProductByID($id: ID!) {
-  product(id: $id, channel: "default-channel") {
+  product(id: $id, channel: "in") {
     id
     name
     description

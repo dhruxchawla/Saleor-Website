@@ -10840,7 +10840,7 @@ export type Mutation = {
   /**
    * Updates a webhook subscription.
    *
-   * Requires one of the following permissions: MANAGE_APPS.
+   * Requires one of the following permissions: MANAGE_APPS, AUTHENTICATED_APP.
    */
   webhookUpdate?: Maybe<WebhookUpdate>;
 };
@@ -25609,7 +25609,7 @@ export enum WebhookTriggerErrorCode {
 /**
  * Updates a webhook subscription.
  *
- * Requires one of the following permissions: MANAGE_APPS.
+ * Requires one of the following permissions: MANAGE_APPS, AUTHENTICATED_APP.
  */
 export type WebhookUpdate = {
   __typename?: 'WebhookUpdate';
@@ -25701,7 +25701,7 @@ export type CategoryDetailsFragmentFragment = { __typename?: 'Category', id: str
 
 export type CheckoutDetailsFragmentFragment = { __typename?: 'Checkout', id: string, token: any, email?: string | null, isShippingRequired: boolean, discountName?: string | null, billingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingAddress?: { __typename?: 'Address', id: string, phone?: string | null, firstName: string, lastName: string, streetAddress1: string, city: string, postalCode: string, isDefaultBillingAddress?: boolean | null, isDefaultShippingAddress?: boolean | null, country: { __typename?: 'CountryDisplay', code: string, country: string } } | null, shippingMethod?: { __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } } | null, availableShippingMethods: Array<{ __typename?: 'ShippingMethod', id: string, name: string, minimumDeliveryDays?: number | null, maximumDeliveryDays?: number | null, translation?: { __typename?: 'ShippingMethodTranslation', id: string, name?: string | null } | null, price: { __typename?: 'Money', currency: string, amount: number } }>, availablePaymentGateways: Array<{ __typename?: 'PaymentGateway', id: string, name: string, config: Array<{ __typename?: 'GatewayConfigLine', field: string, value?: string | null }> }>, lines: Array<{ __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } }>, discount?: { __typename?: 'Money', currency: string, amount: number } | null, subtotalPrice: { __typename?: 'TaxedMoney', net: { __typename?: 'Money', currency: string, amount: number }, tax: { __typename?: 'Money', currency: string, amount: number } }, shippingPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } };
 
-export type CheckoutFragmentFragment = { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } };
+export type CheckoutFragmentFragment = { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } };
 
 export type CheckoutLineDetailsFragmentFragment = { __typename?: 'CheckoutLine', id: string, quantity: number, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, translation?: { __typename?: 'ProductTranslation', id: string, name?: string | null } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null, translation?: { __typename?: 'ProductVariantTranslation', id: string, name: string } | null } };
 
@@ -25834,7 +25834,7 @@ export type CheckoutRemoveProductMutationVariables = Exact<{
 }>;
 
 
-export type CheckoutRemoveProductMutation = { __typename?: 'Mutation', checkoutLineDelete?: { __typename?: 'CheckoutLineDelete', checkout?: { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } } | null, errors: Array<{ __typename?: 'CheckoutError', message?: string | null }> } | null };
+export type CheckoutRemoveProductMutation = { __typename?: 'Mutation', checkoutLineDelete?: { __typename?: 'CheckoutLineDelete', checkout?: { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } } | null, errors: Array<{ __typename?: 'CheckoutError', message?: string | null }> } | null };
 
 export type CheckoutShippingAddressUpdateMutationVariables = Exact<{
   token: Scalars['UUID'];
@@ -25903,6 +25903,7 @@ export type TestMutationVariables = Exact<{
   streetAddress1: Scalars['String'];
   city: Scalars['String'];
   postalCode: Scalars['String'];
+  country: CountryCode;
   countryArea: Scalars['String'];
 }>;
 
@@ -25945,7 +25946,7 @@ export type CheckoutFetchByTokenQueryVariables = Exact<{
 }>;
 
 
-export type CheckoutFetchByTokenQuery = { __typename?: 'Query', checkout?: { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } } | null };
+export type CheckoutFetchByTokenQuery = { __typename?: 'Query', checkout?: { __typename?: 'Checkout', id: string, email?: string | null, lines: Array<{ __typename?: 'CheckoutLine', id: string, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, variant: { __typename?: 'ProductVariant', id: string, name: string, product: { __typename?: 'Product', id: string, name: string, slug: string, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null }, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } }>, totalPrice: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } } | null };
 
 export type CollectionBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -26336,6 +26337,7 @@ export const CheckoutFragmentFragmentDoc = gql`
       }
     }
     variant {
+      id
       product {
         id
         name
@@ -27453,9 +27455,9 @@ export type RequestEmailChangeMutationHookResult = ReturnType<typeof useRequestE
 export type RequestEmailChangeMutationResult = Apollo.MutationResult<RequestEmailChangeMutation>;
 export type RequestEmailChangeMutationOptions = Apollo.BaseMutationOptions<RequestEmailChangeMutation, RequestEmailChangeMutationVariables>;
 export const TestDocument = gql`
-    mutation test($email: String!, $quantity: Int!, $variantId: ID!, $firstName: String!, $lastName: String!, $streetAddress1: String!, $city: String!, $postalCode: String!, $countryArea: String!) {
+    mutation test($email: String!, $quantity: Int!, $variantId: ID!, $firstName: String!, $lastName: String!, $streetAddress1: String!, $city: String!, $postalCode: String!, $country: CountryCode!, $countryArea: String!) {
   checkoutCreate(
-    input: {channel: "default-channel", email: $email, lines: [{quantity: $quantity, variantId: $variantId}], shippingAddress: {firstName: $firstName, lastName: $lastName, streetAddress1: $streetAddress1, city: $city, postalCode: $postalCode, countryArea: $countryArea}, billingAddress: {firstName: $firstName, lastName: $lastName, streetAddress1: $streetAddress1, city: $city, postalCode: $postalCode, countryArea: $countryArea}}
+    input: {channel: "default-channel", email: $email, lines: [{quantity: $quantity, variantId: $variantId}], shippingAddress: {firstName: $firstName, lastName: $lastName, streetAddress1: $streetAddress1, city: $city, postalCode: $postalCode, country: $country, countryArea: $countryArea}, billingAddress: {firstName: $firstName, lastName: $lastName, streetAddress1: $streetAddress1, city: $city, postalCode: $postalCode, country: $country, countryArea: $countryArea}}
   ) {
     checkout {
       id
@@ -27497,6 +27499,7 @@ export type TestMutationFn = Apollo.MutationFunction<TestMutation, TestMutationV
  *      streetAddress1: // value for 'streetAddress1'
  *      city: // value for 'city'
  *      postalCode: // value for 'postalCode'
+ *      country: // value for 'country'
  *      countryArea: // value for 'countryArea'
  *   },
  * });
@@ -28284,7 +28287,7 @@ export type PagePathsLazyQueryHookResult = ReturnType<typeof usePagePathsLazyQue
 export type PagePathsQueryResult = Apollo.QueryResult<PagePathsQuery, PagePathsQueryVariables>;
 export const ProductByIdDocument = gql`
     query ProductByID($id: ID!) {
-  product(id: $id, channel: "default-channel") {
+  product(id: $id, channel: "in") {
     id
     name
     description
@@ -28435,12 +28438,7 @@ export type ProductCollectionLazyQueryHookResult = ReturnType<typeof useProductC
 export type ProductCollectionQueryResult = Apollo.QueryResult<ProductCollectionQuery, ProductCollectionQueryVariables>;
 export const ProductFilterByNameDocument = gql`
     query ProductFilterByName($first: Int = 50, $after: String, $filter: ProductFilterInput!) {
-  products(
-    filter: $filter
-    first: $first
-    channel: "default-channel"
-    after: $after
-  ) {
+  products(filter: $filter, first: $first, channel: "in", after: $after) {
     edges {
       node {
         id
@@ -28509,7 +28507,7 @@ export type ProductFilterByNameLazyQueryHookResult = ReturnType<typeof useProduc
 export type ProductFilterByNameQueryResult = Apollo.QueryResult<ProductFilterByNameQuery, ProductFilterByNameQueryVariables>;
 export const ProductListDocument = gql`
     query ProductList {
-  products(first: 5, channel: "default-channel") {
+  products(first: 5, channel: "in") {
     edges {
       node {
         id
@@ -28549,7 +28547,7 @@ export type ProductListLazyQueryHookResult = ReturnType<typeof useProductListLaz
 export type ProductListQueryResult = Apollo.QueryResult<ProductListQuery, ProductListQueryVariables>;
 export const ProductGetTwelveElementsDocument = gql`
     query ProductGetTwelveElements {
-  products(first: 12, channel: "default-channel") {
+  products(first: 12, channel: "in") {
     edges {
       node {
         id

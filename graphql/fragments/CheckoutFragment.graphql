@@ -10,6 +10,7 @@ fragment CheckoutFragment on Checkout {
       }
     }
     variant {
+      id
       product {
         id
         name

@@ -1,20 +1,49 @@
 import { useTestMutation } from '@/saleor/api';
-import React from 'react'
+import React, { useState } from 'react'
+import Router from 'next/router';
 
 function CheckoutForm() {
+
+const products = JSON.parse(Router.query.data);
+
+const initialCheckoutValues = {                
+    email: '',
+    variantId: '',
+    quantity: '',
+    firstName: '',
+    lastName: '',
+    streetAddress1: '',
+    city: '',
+    postalCode: '',
+    countryArea: '',
+    country : ''
+    };
+
+const [values, setValues] = useState(initialCheckoutValues);  
+
+const handleChange = (e) => {                
+  setValues({
+      ...values,                               
+      [e.target.name]: e.target.value,          
+  });
+  };
+
 const [checkoutCreate, { loading, error }] = useTestMutation()
-const handleButtonClick = () => {
+
+const handleButtonClick = async () => {
+   console.log(values);
   // Call the mutation on button click
-  checkoutCreate({ variables:  {
-    "email" : "dhruv@mail.com",
-    "variantId" : "UHJvZHVjdFZhcmlhbnQ6NDY0",
-    "quantity": 2,
-    "firstName": "shash",
-    "lastName": "asdhb",
-    "streetAddress1": "ashfi",
-    "city" : "Michigan",
-    "postalCode": "49855",
-    "countryArea":"MI"
+  await checkoutCreate({ variables:  {
+    "email" : values.email,
+    "variantId" : products[0]?.variant?.id,
+    "quantity": 1,
+    "firstName": values.firstName,
+    "lastName": values.lastName,
+    "streetAddress1": values.streetAddress1,
+    "city" : values.city,
+    "postalCode": values.postalCode,
+    "country" : 'US',
+    "countryArea": "MI"
   }  })
     .then((result) => {
       // Handle success
@@ -30,7 +59,7 @@ const handleButtonClick = () => {
       <div className=" min-h-screen flex items-center justify-center">
         <div className="max-w-xl w-full px-8 py-12 bg-white rounded-md shadow-lg">
           <h1 className="text-2xl font-semibold text-gray-900 mb-6">Checkout</h1>
-          <form>
+          <form onSubmit={e => { e.preventDefault(); }}>
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div>
                 <label htmlFor="firstName" className="block text-gray-700 mb-2">
@@ -40,6 +69,7 @@ const handleButtonClick = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -51,6 +81,7 @@ const handleButtonClick = () => {
                   type="text"
                   id="lastName"
                   name="lastName"
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -63,6 +94,7 @@ const handleButtonClick = () => {
                 type="email"
                 id="email"
                 name="email"
+                onChange={handleChange}
                 className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
@@ -72,8 +104,9 @@ const handleButtonClick = () => {
               </label>
               <input
                 type="text"
-                id="address"
-                name="address"
+                id="streetAddress1"
+                name="streetAddress1"
+                onChange={handleChange}
                 className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
@@ -86,6 +119,7 @@ const handleButtonClick = () => {
                   type="text"
                   id="city"
                   name="city"
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -97,6 +131,7 @@ const handleButtonClick = () => {
                   type="text"
                   id="postalCode"
                   name="postalCode"
+                  onChange={handleChange}
                   className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -109,6 +144,7 @@ const handleButtonClick = () => {
               <select
                 id="country"
                 name="country"
+                onChange={handleChange}
                 className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
               >
                 <option value="US">United States</option>
@@ -155,7 +191,6 @@ const handleButtonClick = () => {
             <div className="flex justify-between items-center">
               <p className="text-gray-600">Total: $99.99</p>
               <button onClick={handleButtonClick}
-                type="submit"
                 className="bg-indigo-500 text-white px-6 py-2 rounded-md hover:bg-indigo-600"
               >
                 Place Order

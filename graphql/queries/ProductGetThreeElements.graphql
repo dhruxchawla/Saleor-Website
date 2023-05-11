@@ -1,5 +1,5 @@
 query ProductList {
-    products(first: 5, channel: "default-channel") {
+    products(first: 5, channel: "in") {
       edges {
         node {
           id

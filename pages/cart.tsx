@@ -4,8 +4,8 @@ import { useLocalStorage } from 'react-use';
 import {
   Layout,
   CartHeader,
-  CartList,
-  CartSummary
+  CartSummary,
+  CartList
 } from "@/components";
 import { useCheckoutFetchByTokenQuery } from "@/saleor/api";
 
@@ -25,6 +25,8 @@ const Cart = () => {
   if (!data || !data.checkout) return null;
 
   const products = data.checkout?.lines || [];
+
+  console.log(products[0])
 
   return (
     <Layout>

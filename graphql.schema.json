@@ -57282,7 +57282,7 @@
           },
           {
             "name": "webhookUpdate",
-            "description": "Updates a webhook subscription. \n\nRequires one of the following permissions: MANAGE_APPS.",
+            "description": "Updates a webhook subscription. \n\nRequires one of the following permissions: MANAGE_APPS, AUTHENTICATED_APP.",
             "args": [
               {
                 "name": "id",
@@ -115708,7 +115708,7 @@
       {
         "kind": "OBJECT",
         "name": "WebhookUpdate",
-        "description": "Updates a webhook subscription. \n\nRequires one of the following permissions: MANAGE_APPS.",
+        "description": "Updates a webhook subscription. \n\nRequires one of the following permissions: MANAGE_APPS, AUTHENTICATED_APP.",
         "fields": [
           {
             "name": "errors",

@@ -42,8 +42,7 @@ export const CartList = ({ products }: Props) => {
         const variant = line?.variant;
         const product = line?.variant.product;
         const price = line?.totalPrice?.gross;
-        const productID = product?.id
-
+        const productID = product?.id;
         return (
           <li key={line?.id} className="py-6 flex">
             <div className={styles.product.image}>

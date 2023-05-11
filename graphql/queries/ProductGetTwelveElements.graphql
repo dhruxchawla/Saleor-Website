@@ -1,5 +1,5 @@
 query ProductGetTwelveElements {
-  products(first: 12, channel: "default-channel") {
+  products(first: 12, channel: "in") {
     edges {
       node {
         id

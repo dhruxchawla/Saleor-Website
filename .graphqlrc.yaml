@@ -1,4 +1,4 @@
-schema: https://demo.saleor.io/graphql/
+schema: https://shop-api.algomock.in/graphql/
 documents: graphql/**/*.graphql
 extensions:
   codegen:
