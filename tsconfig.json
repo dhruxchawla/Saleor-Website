@@ -23,6 +23,6 @@
       "@/lib": ["lib"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/sidebar/CheckoutForm.js", "components/sidebar/CheckoutSidebar.js", "components/CartList.js", "components/CartList.js", "components/sidebar/CheckoutSidebar.js", "components/sidebar/CheckoutSidebar.js", "pages/payment.js", "pages/shippingmethod.js", "pages/selectmethod.js", "components/sidebar/ShippingMethodSection.js", "components/Payment.js"],
   "exclude": ["node_modules"]
 }

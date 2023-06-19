@@ -1,5 +1,5 @@
-mutation checkoutComplete($checkoutToken: UUID!, $paymentData: JSONString) {
-  checkoutComplete(token: $checkoutToken, paymentData: $paymentData) {
+mutation checkoutComplete($checkoutToken: UUID!) {
+  checkoutComplete(token: $checkoutToken) {
     order {
       id
       status

@@ -1,6 +1,15 @@
-mutation test($email : String!, $quantity: Int!, $variantId : ID!, 
-    $firstName : String!, $lastName : String!, $streetAddress1 : String!, $city : String!
-    ,$postalCode : String!, $country : CountryCode!, $countryArea : String!  ){
+mutation test(
+  $email: String!
+  $quantity: Int!
+  $variantId: ID!
+  $firstName: String!
+  $lastName: String!
+  $streetAddress1: String!
+  $city: String!
+  $postalCode: String!
+  $country: CountryCode!
+  $countryArea: String!
+) {
   checkoutCreate(
     input: {
       channel: "default-channel"
@@ -27,7 +36,7 @@ mutation test($email : String!, $quantity: Int!, $variantId : ID!,
     }
   ) {
     checkout {
-      id
+      token
       totalPrice {
         gross {
           amount
